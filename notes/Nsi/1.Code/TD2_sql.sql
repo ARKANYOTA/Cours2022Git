@@ -111,9 +111,4 @@ SELECT AVG(reputation) FROM "Joueurs"
     JOIN Peuple ON Peuple.id_peuple = Reputation.id_peuple
     WHERE nom_faction='Roublard' AND nom_peuple='Géant'
 --24. Les logins des joueurs ayant comme faction ‘Sorcier’ comme métier ‘Mineur’ et ayant un niveau de réputation supérieur à 5 par rapport au peuple ‘Orc’
-SELECT login FROM "Joueurs"
-    JOIN Factions ON Factions.id_faction = Joueurs.id_faction
-    JOIN Metiers ON Metiers.id_metier = Joueurs.id_metier
-    JOIN Reputation ON Reputation.login = Joueurs.login
-    JOIN Peuple ON Peuple.id_peuple = Reputation.id_peuple
-    WHERE nom_faction='Sorcier' AND nom_metier='Mineur' AND nom_peuple='Orc' AND reputation>5
+SELECT l

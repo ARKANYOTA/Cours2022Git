@@ -17,38 +17,69 @@
 		
 </head>
 <body>
-<p>class JeuVideo:
-def <strong>init</strong>(self, titre, plateformes, multijoueur):
-self.titre  = titre
-self.plateformes = plateformes
-self.multijoueur = multijoueur
-def addPlateforme(self, plateforme):
-if not(plateforme in self.plateformes):
-self.plateformes.append(plateforme)
-def removePlateforme(self, plateforme):
-if plateforme in self.plateformes:
-self.plateformes.remove(plateforme)
-def isOnPlateforme(self, plateforme):
-return plateforme in self.plateformes
-def isMultijoueur(self):
-return self.multijoueur
-def <strong>str</strong>(self):
-texteAffichage = self.titre + &#8220;\n&#8221;
-texteAffichage += &quot;Multijoueur : &quot; + str(self.isMultijoueur()) + &#8220;\n&#8221;
-texteAffichage += &quot;Plateformes : &quot; + str(self.plateformes) + &#8220;\n&#8221;
-return texteAffichage</p>
+<h1 id="classjeuvideo:">class JeuVideo:</h1>
 
-<p>mario64 = JeuVideo(&#8220;Mario 64&#8221;, [&#8220;N64&#8221;, &#8220;DS&#8221;, &#8220;Switch&#8221;], False)
-print(mario64.titre)
-print(mario64.isMultijoueur())
-print(mario64.addPlateforme(&#8220;PS4&#8221;))
-print(mario64.plateformes)
-print(mario64.isOnPlateforme(&#8220;Switch&#8221;))
-print(mario64.removePlateforme(&#8220;PS4&#8221;))
-print(mario64.isOnPlateforme(&#8220;PS4&#8221;))</p>
+<h1 id="def__init__selftitreplateformesmultijoueur:">def <strong>init</strong>(self, titre, plateformes, multijoueur):</h1>
 
-<p>mario64 = JeuVideo(&#8220;Mario 64&#8221;, [&#8220;N64&#8221;, &#8220;DS&#8221;, &#8220;Switch&#8221;], False)
-print(mario64)</p>
+<h1 id="self.titretitre">self.titre  = titre</h1>
+
+<h1 id="self.plateformesplateformes">self.plateformes = plateformes</h1>
+
+<h1 id="self.multijoueurmultijoueur">self.multijoueur = multijoueur</h1>
+
+<h1 id="defaddplateformeselfplateforme:">def addPlateforme(self, plateforme):</h1>
+
+<h1 id="ifnotplateformeinself.plateformes:">if not(plateforme in self.plateformes):</h1>
+
+<h1 id="self.plateformes.appendplateforme">self.plateformes.append(plateforme)</h1>
+
+<h1 id="defremoveplateformeselfplateforme:">def removePlateforme(self, plateforme):</h1>
+
+<h1 id="ifplateformeinself.plateformes:">if plateforme in self.plateformes:</h1>
+
+<h1 id="self.plateformes.removeplateforme">self.plateformes.remove(plateforme)</h1>
+
+<h1 id="defisonplateformeselfplateforme:">def isOnPlateforme(self, plateforme):</h1>
+
+<h1 id="returnplateformeinself.plateformes">return plateforme in self.plateformes</h1>
+
+<h1 id="defismultijoueurself:">def isMultijoueur(self):</h1>
+
+<h1 id="returnself.multijoueur">return self.multijoueur</h1>
+
+<h1 id="def__str__self:">def <strong>str</strong>(self):</h1>
+
+<h1 id="texteaffichageself.titren">texteAffichage = self.titre + &#8220;\n&#8221;</h1>
+
+<h1 id="texteaffichagemultijoueur:strself.ismultijoueurn">texteAffichage += &quot;Multijoueur : &quot; + str(self.isMultijoueur()) + &#8220;\n&#8221;</h1>
+
+<h1 id="texteaffichageplateformes:strself.plateformesn">texteAffichage += &quot;Plateformes : &quot; + str(self.plateformes) + &#8220;\n&#8221;</h1>
+
+<h1 id="returntexteaffichage">return texteAffichage</h1>
+
+<p>#</p>
+
+<h1 id="mario64jeuvideomario64n64dsswitchfalse">mario64 = JeuVideo(&#8220;Mario 64&#8221;, [&#8220;N64&#8221;, &#8220;DS&#8221;, &#8220;Switch&#8221;], False)</h1>
+
+<h1 id="printmario64.titre">print(mario64.titre)</h1>
+
+<h1 id="printmario64.ismultijoueur">print(mario64.isMultijoueur())</h1>
+
+<h1 id="printmario64.addplateformeps4">print(mario64.addPlateforme(&#8220;PS4&#8221;))</h1>
+
+<h1 id="printmario64.plateformes">print(mario64.plateformes)</h1>
+
+<h1 id="printmario64.isonplateformeswitch">print(mario64.isOnPlateforme(&#8220;Switch&#8221;))</h1>
+
+<h1 id="printmario64.removeplateformeps4">print(mario64.removePlateforme(&#8220;PS4&#8221;))</h1>
+
+<h1 id="printmario64.isonplateformeps4">print(mario64.isOnPlateforme(&#8220;PS4&#8221;))</h1>
+
+<p>#</p>
+
+<h1 id="mario64jeuvideomario64n64dsswitchfalse">mario64 = JeuVideo(&#8220;Mario 64&#8221;, [&#8220;N64&#8221;, &#8220;DS&#8221;, &#8220;Switch&#8221;], False)</h1>
+
+<h1 id="printmario64">print(mario64)</h1>
 
 <h2 id="queletypecestunobjetaupointeur0x7f05c540ef40devaleur139662760931136">Que le type c&#8217;est un objet au pointeur 0x7f05c540ef40 de valeur 139662760931136</h2>
 

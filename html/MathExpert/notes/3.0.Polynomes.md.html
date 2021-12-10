@@ -30,6 +30,16 @@
 	</script>
 </head>
 <body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>3.0.Polynomes</title>
+	<meta name="created" content="'2021-12-06T22:09:03.767Z'"/>
+	<meta name="modified" content="'2021-12-06T22:09:03.767Z'"/>
+</head>
+<body>
+
 <h1 id="polynomes:vimsetftex:">Polynomes :vim setf=tex:</h1>
 
 <h2 id="idéfinition">I) Définition</h2>
@@ -196,6 +206,72 @@ Soit \alpha une racine de P</p>
 </tr>
 </tbody>
 </table>
+
+<h3 id="4multiplicité">4) Multiplicité</h3>
+
+<p>Soit <span class="math">\(A\)</span> et <span class="math">\(B\)</span> deux polynomes de <span class="math">\(K[x] (K = \R ou K = \Complex)\)</span></p>
+
+<p>On dit que <span class="math">\(A\)</span> divise <span class="math">\(B\)</span> dans <span class="math">\(K[x]\)</span> si exsiste <span class="math">\(P \in K[x]\)</span> tel que <span class="math">\(B = AP\)</span>
+On écrit alors <span class="math">\(A | B\)</span></p>
+
+<p>On a vu que <span class="math">\(\alpha\)</span> est une racine de <span class="math">\(P\)</span> si <span class="math">\(X-\alpha | P\)</span></p>
+
+<p><span class="math">\(\boxed{\text{On dit que } \alpha \text{ est une racine de multiplicité } n ~~(n \in \N^*) ~de~P~si(X-\alpha)^n | P ~~ et ~~ (X-\alpha)^{n+1} \not | P}\)</span></p>
+
+<p>Soit <span class="math">\(\alpha\)</span> une racine de multiplicité 2 d&#8217;un polynome <span class="math">\(P\)</span> de <span class="math">\(K[x]\)</span></p>
+
+<p>Montrer que <span class="math">\(P'(\alpha) = 0\)</span></p>
+
+<p><span class="math">\(P = (X-\alpha)^2Q\)</span>, <span class="math">\(Q \in K[x]\)</span>
+<span class="math">\(P' = 2(X-\alpha)Q + (X-\alpha)^2 \times Q'\)</span>
+<span class="math">\(P' = (X-\alpha)[2Q + (X-\alpha)\times Q']\)</span></p>
+
+<p><span class="math">\(P'(\alpha) = 0\)</span></p>
+
+<p>On admet le résultat suivant</p>
+
+<p>Si <span class="math">\(x\)</span> est une racine de multiplicité n d&#8217;un polynome <span class="math">\(P\)</span>, alors
+<span class="math">\(P(\alpha) = P'(\alpha) = P^{(2)}(\alpha) = \dots =  P^{(n-1)}(\alpha) = 0\)</span></p>
+
+<p>et <span class="math">\(P^{(n)}(\alpha) \not= 0\)</span></p>
+
+<p>La réciproque est vraie</p>
+
+<p><span class="math">\(P(X) = X^6 + X^5 + 3X^4 + 2X^3 + 3X^2 + X + 1\)</span></p>
+
+<p>Montrer que i est une racine de P. Quelle est sa multiplicité?</p>
+
+<p><span class="math">\(P(i) = 0\)</span>
+<span class="math">\(i^6 + i^5 + 3i^4 + 2i^3 + 3i^2 + i + 1 = -1 + i + 3 -2i-3+i+1 = 0\)</span></p>
+
+<p><span class="math">\(X-i | P\)</span></p>
+
+<p><span class="math">\(P = (X-i)Q\)</span></p>
+
+<p><span class="math">\(P'(X) = 6X^5 + 5X^4 + 12X^3 + 6X^2 + 6X + 1\)</span>
+<span class="math">\(P'(i) = 6i^5 + 5i^4 + 12i^3 + 6i^2 + 6i + 1 = 0\)</span></p>
+
+<p><span class="math">\(P''(X) = 30X^4 + 20X^3 + 36X^2 + 12X + 6\)</span>
+<span class="math">\(P''(i) = 30i^4 + 20i^3 + 36i^2 + 12i + 6 = -8i\)</span></p>
+
+<p><span class="math">\(P(i) = P'(i) = 0\)</span></p>
+
+<p><span class="math">\(P''(i) \neq 0\)</span>
+Donc i est de multiplicité 2</p>
+
+<p>Décomposer <span class="math">\(P = X^4 - 4\)</span> en produit de polynomes les plus simples possible dans <span class="math">\(\R[x]\)</span> et dans <span class="math">\(\Complex[x]\)</span></p>
+
+<p><span class="math">\(P = X^4 - 4\)</span>
+<span class="math">\(= X^{2^2} - 2^2\)</span>
+<span class="math">\(= (X^2 + 2)(X^2 - 2)\)</span>
+<span class="math">\(= (X^2 - (i\sqrt{2})^2)(X+\sqrt 2)(X - \sqrt 2)\)</span></p>
+
+<p><span class="math">\(= (X+i\sqrt 2)(X - i\sqrt 2)(X+\sqrt 2)(X - \sqrt 2)\)</span> dans <span class="math">\(\Complex[X]\)</span>
+<span class="math">\(= (X^2 + 2)(X+\sqrt 2)(X - \sqrt 2)\)</span> dans <span class="math">\(\R[X]\)</span></p>
+
+</body>
+</html>
+
 
 </body>
 </html>
