@@ -14,6 +14,10 @@ print(A)
 def first_elt(A):
     return A.keys()[0]
 
+def taille(A, elt):
+    if elt is None:
+        return 0
+    return 1+taille(A[elt]["fg"]) + taille(A[elt]["fd"])
 def hauteur(A, elt):
     if A[elt]["fg"] is None or A[elt]["fd"] is None:
         if A[elt]["fg"] is None and A[elt]["fd"] is None:
