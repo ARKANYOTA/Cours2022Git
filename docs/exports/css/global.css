@@ -1,0 +1,93 @@
+body {
+    line-height: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 50vw;
+
+}
+
+@media (max-width: 1300px) {
+    body {
+        width: 65vw;
+    }
+}
+@media (max-width: 1000px) {
+    body {
+        width: 75vw;
+    }
+}
+@media (max-width: 800px) {
+    body{
+        width: 90vw;
+    }
+}
+@media (max-width: 600px) {
+    body{
+        width: 100vw;
+    }
+}
+.theme-button:hover {
+    color: var(--color-primary);
+    border: none;
+}
+
+.theme-button{
+    color: var(--color-text-link);
+
+}
+blockquote>blockquote>p{
+    color: var(--color-auto-black);
+    padding: 10px;
+    font-size: 18px;
+}
+
+blockquote>blockquote{
+    border: 1px solid var(--color-auto-black) !important;
+    border-radius: 3px;
+}
+
+
+
+#numberTocLevel{
+    font-size: 24px;
+    padding: 3px;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tocIdInfo{
+    font-size: 10px;
+    padding: 3px;
+}
+
+.linker-link{
+    color: var(--color-text-link);
+    font-size: 30px;
+    font-family: Roboto, serif;
+}
+
+/*markaown css*/
+.box{
+    border: 1px solid var(--color-auto-black) !important;
+    padding: 3px;
+}
+.boxed{
+    border: 1px solid var(--color-auto-black) !important;
+    padding: 3px;
+}
+.red {
+    color: var(--color-auto-red-6);
+}
+.green {
+    color: var(--color-auto-green-6);
+}
+

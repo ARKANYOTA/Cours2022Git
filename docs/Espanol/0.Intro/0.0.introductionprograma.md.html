@@ -1,0 +1,272 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../.././exports/css/global.css">
+                <script src="../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#actividad-3-">Actividad 3:</a> <span class='tocIdInfo'>(actividad-3-)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#la-era-de-la-m-sica-urbana">La era de la mùsica urbana</a> <span class='tocIdInfo'>(la-era-de-la-m-sica-urbana)</span></li></ul></ul></ul></ul></ul>
+# introductionprograma
+<p>Faires lesaccent sur vim</p>
+<p>En mode insertion
+Ctrl-K + ' + e =&gt; é
+`        è
+&quot;        ë
+^        ê
+o   e    œ
+c   ,    ç
+&lt;   &lt;    «<br />
+more help with :digraphs command</p>
+<p>acoger ) accueilir
+un intercambio = un echange
+el campo léxico que remite a ...
+un héroe ficticio/imaginario != real
+una palabrea</p>
+<p>se puede  relacionar con formar parte de = faire partie de</p>
+<h2>Actividad 3:<a id='actividad-3-'></a></h2>
+<p>un cartel = une affiche
+una cita = une citation
+un c<code>omic  - un tebo = une BD una vi~neta laa eneg</code>ia renovable
+un sitio = un site
+el cambio clim`atica poner de realce/relieve</p>
+<p>en el primer|segundo|tercer plano || mettre en avant/relief
+vincular</p>
+<p>gotas de lluvia
+luchar cantra</p>
+<p>un enganche = une phrase d'accroche
+un t`itula
+cerrarle la perta a la narices de alguien : claquer la porte au nez</p>
+<p>en efecto:</p>
+<p>cerrarle la puerta a las narices de alguien un cartel = fermer la porte au nez de quelqu'un
+una cita = un rendez-vous
+un cómic/un tebeo = une bande dessinée
+una viñeta = une vignette
+la energía renovable = énergie renouvelable
+un sitio = un endroit
+en efecto = en effet
+la fuente = la source
+el cambio climático = le changement climatique
+vincular = relier
+luchar contra = lutter contre
+un enganche = un accroc
+un título = un titre</p>
+<hr />
+<p>Rendir homeraje
+un verdugo = un bourreau</p>
+<h4>La era de la mùsica urbana<a id='la-era-de-la-m-sica-urbana'></a></h4>
+<p>? La mùsica urbana tiene mensaje o solo es marjeting?</p>
+<p>una cantante
+una cancion
+una estrofa
+un estrillo = un refrin
+la letea = les paroles
+tocar guitarra
+un rapero</p>
+<p>compreasion oral, rosalia</p>
+<p>Rosalia habla de ella</p>
+<p>walking around platofom, elle a des gans tallons</p>
+<p>seveliabo,</p>
+<p>Se trata de un doumentol a proposito de Rosalia, una cantante comprometida que mezcla el flamenco tradicional y la musica urbana</p>
+<ul>
+<li>para elle, el flamenco es la musica con mas corazon</li>
+<li>Nos entramos de que Rosalia suele comprar zapatos de flamenco pera con una exigencia particular: tienen que ser con plataformas
+quiere dar mas visibilidad a las mujeres que hacen musica a solas
+-la vermos en casapatas, un lugar emblématico para artistas de Flamenco</li>
+</ul>
+<p>Asi, podemos deducir que le importa mucho aprender las bases clasicas pero le gusta innovar, experimentar con la musica electronica</p>
+<p>Tuco que empezar desde cero porque no habia aprendido la musica</p>
+<hr />
+<p>Apprendre Voc:</p>
+<p>cerrarle la puerta a las narices de alguien un cartel = fermer la porte au nez de quelqu'un
+una cita = un rendez-vous
+un cómic/un tebeo = une bande dessinée
+una viñeta = une vignette
+la energía renovable = énergie renouvelable
+un sitio = un endroit
+en efecto = en effet
+la fuente = la source
+el cambio climático = le changement climatique
+vincular = relier
+luchar contra = lutter contre
+un enganche = un accroc
+un título = un titre</p>
+<ul>
+<li>apprendre les 5 premières listes de voc de la fiche</li>
+</ul>
+<hr />
+<p>éxito: succès
+tras = despues de
+un disfraz = un déguisement
+alarar = éclaircir préciser</p>
+<p>No ... sino ...</p>
+<p>Personas que estan decepciona das pr el coportamiento de R
+l2-3, y conideran que no es original y se repite en todos los conciertitos
+Tamboen le reprochan el hecho de apropria  la cultura ditana sin serlo ademos la acusan de rolar las oportunidades, a otras que merecen mas este exito, segun ellos por fin para anadir a las criticas noelia cortes la culpa de ne respectar la cultura clasica de flamenco</p>
+<p>Las criticas ontra R. no constructivas ino destructivas no hacer que la artista evlutione en su carrera, R no solo canta sino que tambien baila flamenco</p>
+<p>R. no solo canta sino que tambien baila flamenco
+No solo esta criticada sino que ademas esta instultada por haters</p>
+<p>La artista resonde al decir que respecta a los espanoles y que solo siguio los habitos del barrio donde ella crecio
+Aunque No hace case de las criticas y las toma con mucha distancia, es importante para ella justiicarse</p>
+<p>Segun la periodista, rosalia es un ejemplo para los jovenes que suelen los moldes insirandose modelo de estilos musicales tanto closicos como cntempoaneos</p>
+<hr />
+<p>Paren de maternnos:</p>
+<p>Que se esta un musica, que se llama, paren de matarnos, que denunciar</p>
+<ol>
+<li>
+<p>La photo monta personoas que se revoltar y el titulo &quot;paren de maternos&quot;(arretez de nous tuer)</p>
+</li>
+<li>
+<p>El problemo presnetar es que el politico no ayudar para el matar mujeres
+w</p>
+</li>
+<li>
+<p>La lettra es montra, &quot;fenismismo esta eompiendo el silencio sobre la violencia sistémica&quot;, una</p>
+</li>
+</ol>
+<p>a tu parecer ? que objectivos puede tener una cancion comprometida sobre la opinion publica?
+apesar de las millones de escuchar en las plataformas de musica el reggeaton sigue siendo une de los estilos musivales mas rechazados</p>
+<p>Anque las letra de estas canciones sea machista el ritmo es pegadizad</p>
+<p>A pesar de su aparenciencia apolitica esta musica puede esconder reuvudecaciones mas compremetidas</p>
+<p>aunque dicen que el reggeaton es superficial, mp gusta escucharlo</p>
+<p>a pesar de su mala tama, este estilo toma cada vez mas importancia en el mundo musical,</p>
+<hr />
+<p>un campo lexico
+novela de amor
+novela politica
+Como ca evoluciopnafo la acciob a lalargo del relato</p>
+<p>Que procedimentos estulisticos se utilizan para marcar el ritmo de las acciones</p>
+<hr />
+<p>Buenos propositos</p>
+<p>Katalin
+Es la mas pequena de grupo al principo no es una amiga de las chicas
+Es crédula,ngenva: el juez le Race ccreer que ha perdido la memoria por culpa de las chicas parece podrudaa
+es la hermana de Ana</p>
+<p>Con la intencion de salvar a sus hermanas de las toruras y, en ultima instancia de la hoguera, Ana dice ser una bruja que hechiza a las demas para llevarlas al bosque y ofrecerlas a Lucifer</p>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>

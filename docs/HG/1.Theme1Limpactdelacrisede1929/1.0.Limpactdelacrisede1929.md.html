@@ -1,0 +1,291 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../.././exports/css/global.css">
+                <script src="../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-la-crise-est-n-e-au-tats-unis">I) La crise est née au états Unis</a> <span class='tocIdInfo'>(i-la-crise-est-n-e-au-tats-unis)</span></li><ul><ul></ul><li class="level-3"><a href="#a-le-krach-bourier-d-octobre-1929">A) Le krach bourier d'octobre 1929</a> <span class='tocIdInfo'>(a-le-krach-bourier-d-octobre-1929)</span></li><ul><ul></ul><li class="level-4"><a href="#d-crire">Décrire</a> <span class='tocIdInfo'>(d-crire)</span></li></ul><li class="level-3"><a href="#b-les-causes-bulles-sp-culative">B) Les causes bulles spéculative</a> <span class='tocIdInfo'>(b-les-causes-bulles-sp-culative)</span></li><ul><ul></ul><li class="level-4"><a href="#expliquer-">Expliquer </a> <span class='tocIdInfo'>(expliquer-)</span></li></ul><li class="level-3"><a href="#c-de-la-crise-boursi-re-la-crise-g-n-rale-durable">C) De la crise boursière à la crise générale/durable</a> <span class='tocIdInfo'>(c-de-la-crise-boursi-re-la-crise-g-n-rale-durable)</span></li></ul><li class="level-2"><a href="#ii-la-crise-devient-mondiale">II) La crise devient mondiale</a> <span class='tocIdInfo'>(ii-la-crise-devient-mondiale)</span></li><ul><ul></ul><li class="level-3"><a href="#a-la-crise-en-am-rique-latine">A) La crise en Amérique latine</a> <span class='tocIdInfo'>(a-la-crise-en-am-rique-latine)</span></li><ul></ul><li class="level-3"><a href="#b-la-crise-en-europe-">B) La crise en Europe.</a> <span class='tocIdInfo'>(b-la-crise-en-europe-)</span></li><ul></ul><li class="level-3"><a href="#c-la-crise-dans-les-colonies">C) La crise dans les colonies</a> <span class='tocIdInfo'>(c-la-crise-dans-les-colonies)</span></li></ul><li class="level-2"><a href="#iii-les-rem-des-la-crise-">III) Les remèdes à la crise/</a> <span class='tocIdInfo'>(iii-les-rem-des-la-crise-)</span></li><ul><ul></ul><li class="level-3"><a href="#b-le-front-populaire-">B) Le front populaire,   </a> <span class='tocIdInfo'>(b-le-front-populaire-)</span></li></ul></ul></ul></ul>
+# Limpactdelacrisede1929 : déséquilibre économique et sociauxo
+<p>Années 20: Periode de dévlipmemnt du model américan: automobile, instalation dans less banlieus(suburbs)(car moyen de transport disponible),
+Le américans, il ont de la place partout, devlopement des villes, devlopement grate ciel, idée de consomation, systeme boursier, vivre à crédot,
+↓
+Crise de 29, 24 octobre, jeudi noir,
+↓
+Effondrement du modelle américane</p>
+<p>Affaiblisment économique.
+Les US deviennent la premiere puissance mondiale car:
+- Ouverture vers le monde
+- L'europe s'appovirsse car il vivent la 1ere war(reconstruction) et affaiblissment politique(puissance centrale, disspartion des 4 grand empires, (austro hogrois, allmagne, russe, otoman))
+- Mais reste France et UK
+Crise de 29 =&gt; Choc Pshycologique, (Dos Passos)
+-&gt; Mondialisation et donc se repercute sur les état en relation avec les USA: assez lent(1-2 ans),</p>
+<p>=&gt; Répercution sociale:
+=&gt; Media à bcp de répecution sociale(Diffusion participe à la crise, au resenti/vecu des gens)</p>
+<p>Quels sont les solutions:</p>
+<ul>
+<li>Dans les Démocration on va résoudre de façon accord entre les gens (gouv-peuple)</li>
+<li>Dans les états autoritaire: C'est la :merde:, solution dictatoriales, sans démocratie</li>
+</ul>
+<p>La crise de 29 est un element qui mêne à la guerre mondiale,
+mais aussi années 20-30: etat de pacificme, essayer de negocier avec hitler()</p>
+<p>Hitler se nourit de la crise de 29:
+= like: Extraime droite: nourit de ma pauvreté</p>
+<h2>I) La crise est née au états Unis<a id='i-la-crise-est-n-e-au-tats-unis'></a></h2>
+<p>Differance entre crise et dépression
+crise : brutrale, fin a une periode de croissance
+dépression: bcp plus présent dans le temps, durrable et généralisé. faillite de banque et d'entreprise =&gt; hausse du chômage et de la pauvreté, le commerce diminue, pays agricole sécroule,</p>
+<p>la dépression va gagener l'europe qui est un client important, et les pays d'amérique du sud
+<strong>Doctrine Monroe</strong></p>
+<p>Empire colonieaux: commerce de l'exclusif: appovrisse les colonies</p>
+<h3>A) Le krach bourier d'octobre 1929<a id='a-le-krach-bourier-d-octobre-1929'></a></h3>
+<h4>Décrire<a id='d-crire'></a></h4>
+<p>Au cours de sannée 1920, les US se sont considérablement dévlopées, la production industrielle, on construit 4,3 millions en 1926 -&gt; 5,3 million en 1929 automobile.
+Utilisation travail à la chainne, la pays s'enrichit, la croissance fait augemente la spéculation(actions),</p>
+<p>en 1928 a la bousres de NY 129 million d'actions ont été échangées, et le prix augmemente. Action gagne 0,25% assez rapidement, Et les gens en achètes de plus en plus (à crédit), =&gt; essouflement du moarché =&gt; baisse =&gt; panqiue =&gt;
+24 octobre 6million d'action sont vendues.
+Le jeudi noir = rompue la confiance =&gt; le landein 9million d'acctions son't vendue.</p>
+<p>Pendand environ 3 monte et baisse
+QQlqs sucides environs 11.</p>
+<h3>B) Les causes bulles spéculative<a id='b-les-causes-bulles-sp-culative'></a></h3>
+<h4>Causes du krach</h4>
+<ul>
+<li>
+<p>spéculation boursière: entre 1924 et septemebre 1929: cours des action en moyene avait mult 3
+environ 6% de la population avait des actions
+=&gt; bulle spéculative/financière = gens vendes/achètes, souvent à credit,</p>
+</li>
+<li>
+<p>La banque central n'a pas reussi a frainer les crach</p>
+</li>
+<li>
+<p>secteur agricole: années 20: les recoletes agicoles produissent plus que la cossomation</p>
+</li>
+</ul>
+<h4>Expliquer <a id='expliquer-'></a></h4>
+<p>=&gt; prix agricole baisse. production à perte, spéculation produits/marché agricoles
+les exploitations agricoles baisses.</p>
+<ul>
+<li>on s'appersoit que la production idustriel ne suffit pas à la consomation. salaires ne suffise pas.</li>
+</ul>
+<p>Sa a provoquer un perte pour
+Crise++, entreprise = faillite, gens qui y joue pas = chomage(sans assurance chomage)</p>
+<h3>C) De la crise boursière à la crise générale/durable<a id='c-de-la-crise-boursi-re-la-crise-g-n-rale-durable'></a></h3>
+<p>Ruines des épargnes
+Banques en faillites =&gt; faillites d'entreprise =&gt; chomage
+Exportation s'éffondres =&gt; plus de production =&gt; Importation s'effondre met un certain temps à arriver
+=&gt; crise sociale =&gt; chomage de masse(3 -&gt; 25%)
+=&gt; a cause du chomage et baisse de la consomation entraine baisse agricole. =&gt;</p>
+<p>Cette crise économique devient mondiale en touchant l'amerique latine et l'europe</p>
+<h2>II) La crise devient mondiale<a id='ii-la-crise-devient-mondiale'></a></h2>
+<p>Les banques et les entreprise rapatrie en US leur capiteaux, car il faut assurer les payements,</p>
+<p>Le presiant Hoover(Républicant) =&gt; relancer la production et consomation locales =&gt; augement les droits doines.</p>
+<p>Ce protectionisme diminue les exprotation Europen et sud affrican vers les US s'effondre le commerce international s'effondre aussi
+L'amerique latine vie des imporation/exportation donc elle s'effondre</p>
+<h3>A) La crise en Amérique latine<a id='a-la-crise-en-am-rique-latine'></a></h3>
+<ul>
+<li>Dévlopement du cachoutchou s'effondre car il est surtout utiliser pour les automobiles. Les stock s'accumule, les prix chutes, les entreprise diminue leur productions, elle licencie ou font faillites.
+et donc se develloppe des régimes autoritaires et affaiblit les démocracie</li>
+</ul>
+<p>hitler au pouvoir, est directement liée a la crise</p>
+<p>crise = devlopement de l'extreme droite.</p>
+<h3>B) La crise en Europe.<a id='b-la-crise-en-europe-'></a></h3>
+<p>parmi les a1er pays toucher: autriche allemagne puis france et RU</p>
+<p>Se manifeste par une crise banquaire, bcp de banque européen font faillites, suite au rapatriment des capitaux américan =&gt; crise industriel, et du commerce</p>
+<p>Cette crise arrive dans les pays affaibli par la 1er guerre mondiale.</p>
+<p>Les états(qui ont été touchée(europe Orientale)) pour financer leur déficit, vont devoir recourir au crédit, il font être obliger de augmenter les impots, un certain nombre d'état veullent crée de la monnaie, et donc provoque un inflation(montée des prix), les US vont dévaluer leur money (favorise les exportation), c'est differantes solution ne reponde pas au malaise sociaux, par faute de conséquance, la crise a toucher aussi les colonies.</p>
+<h3>C) La crise dans les colonies<a id='c-la-crise-dans-les-colonies'></a></h3>
+<p>le commerce international va se contracter.
+D'autant plus que bcp d'état vont choisir des meusure protectionsiste(fermeture des frontières, en augementant les taxes doinères)</p>
+<p>Les colonies ne peuvent pas decider=&gt; commerce de l'exclusif, et dépandes de la métropole</p>
+<p>Produit soiffrance: café, coton, laine(textile), caoutchou, product base on oil,...,</p>
+<p>Comme solution certaint gouvernement vont donner à l'état un role économique et social bcp plus important, c'est ce que l'on appellent un Etat providence.</p>
+<h2>III) Les remèdes à la crise/<a id='iii-les-rem-des-la-crise-'></a></h2>
+<p>Les gouvernement décide pour sortir de la crise, il faut engager une thecnique de déflations, c'est une politique dans laquelle:</p>
+<p>on diminnue les salaires (Diminue le niveau de vie, diminution alocation sociale)
+Ne fonctione pas, les gens le prènes assez mal, votes plus pour eux, et donc les démoscracies
+sorte de catastrophe, se seul pays que ne quite pas la politique déflationise est la France
+le politque déflationite est un echec</p>
+<p>Keynes dit que il faut que l'état intervaine, et que il faut soutenir la demande, faire consomer les gens, et reduire le chomage(grace à l'intervanetion de létat) avec &quot;A le New Deal&quot;(la nouvelle done) létat va etre a l'origine d'une politique de grand traveaux</p>
+<p>Le new Deal est mit en place en 1933, Serie de loi qui pose le fondement de l'état providence</p>
+<ul>
+<li>Agricutural Ajustement Act(AAA): indemniser les agriculteur qui s'engage a reduire leurs productions,</li>
+</ul>
+<p>TT les secteur de l'economie sont conséerner au US
+En ce qui concerne les industries, NIRA il est décider que ds les entreprise les peuvent pas payer moins que le salaire minimum, et respecter un code de bonne conduite
+le sociale security act (SSA), qui donne une allocation chomage,</p>
+<p>Le problemen qui ya , elle engendre un dilminution des salaires des américains,</p>
+<p>Le new est une réusite magré qqlqs éches(éducation, fonctionaires),
+En france les remèdes vont être differantes</p>
+<h3>B) Le front populaire,   <a id='b-le-front-populaire-'></a></h3>
+<p>La création du front populaire est une surprise; elle est le resutat de la montée de l'extrême droite, liée donc à la crise économique, mais aussi au comportement illégaux de qelues hommes politiques,
+ligues d'anciens combattants qui ont mal vecu l'apres guerre,
+les croix de feu de la roque</p>
+<p>l'arriver d'Hitler au pouvoir à séduit un minorité des Français</p>
+<p>Les effet de la crise 1929</p>
+<p>En france tradition d'extrememe droite depuis la révolution francaise, une partie de la france que est monarchiste,
+Action Francaise,</p>
+<p>Congresde Tours, Le SFIO =&gt; IIIe : Lénine PCF(Parie coministe francaise), Radical-socialiste(premier ministre Léon Blum)</p>
+<p>Les pays etait globalement sous dictature</p>
+<hr />
+<p>Le front populaire est née de la montée de l extrème droite:</p>
+<p>PK la montée de l'extreme droite:</p>
+<ul>
+<li>Exsiste depuis la révolution française, =&gt; essenciellemnt extreme droite monarchiste, opposée à la (république), retour à l'Ancien Régime.</li>
+</ul>
+<p>Groupe nationalise:</p>
+<ul>
+<li>considère que nation=important, défandre à nimporte quel prix, exemple(ne pas mettre en France des régime universalisme(comunisme), contre les libéraux, )</li>
+</ul>
+<p>Fashistes:</p>
+<ul>
+<li>une seule révolution =&gt; mussolini, il faut un chef, En france tres peu nombreux</li>
+</ul>
+<p>Parti social Francais PSF : Marcel Déat
+Parti populaire Francais PPF : Jacques Doriot</p>
+<p>Parti etremement minoritaire,
+N'a jamais fonctioner, sauf avec Pétain: 2 premier groupe de l'extraime droite et</p>
+<p>PSF et PPF =&gt; Sous petain= pas assez colaboratif avec allemands</p>
+<p>Le 12 fevrier 1934, par les manifestation vont monter le pouvoir de la rue;</p>
+<p>Lesparti de gauche décide de s'allier eléctoratlement pour former le front populaire</p>
+<p>A la suite de cette aliance politique entre les 3 grands parti de gauche, ils décides de former un gouvenement,
+Les comuniste soutiennes mais n'y participe pas</p>
+<p>Les conditions sociales sont très mauvaises, donc faut donner du travail au gens</p>
+<p>Augmentation des salaire: les accort matignion
+Congée payées: aux gens
+La meusure phares des congées payes, se sont dévloppé que en 1937-8 puis sourtout dans les années 50</p>
+<p><strong>CONCLUSION</strong>:</p>
+<p>On sais aujourd'hui que la crise de 1929 a eu des consequance economique, sociale,pauvrete, psycologiques(En 1945, les US vont changer le systeme monaitaire internatinale, suite a ces problemes), migration, et politique. Qui ont devlopper le systeme totalitaire(Qui force a se refermer sur soi meme)</p>
+<p>Hitler va jouer sur la defances des interets allements, (Il veut que le 3eme ricth, soit global), (allemagne pas responsable), (mare du systeme US)</p>
+<p>Les italiens, ont adoppter le m^eme principe,
+Les italiens sont dans le camps, autriche hongrie et allemagne, et en 1915 change de camps, et une compentation de terrin etait demander.
+Les territoires n'ont pas donnes/contrat pas respecter,</p>
+<p>La crise de 29 marque le debut d'une nouvelle etpoque a sivoir la monter du totalirisme, face a des democratie peu nombreuse en europe(France angletterre, suisse, benelux(luxemabur, belgique, paysbas), etat scandinave).</p>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>
