@@ -1,0 +1,262 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../../.././exports/css/global.css">
+                <script src="../../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul><ul><ul><ul><ul></ul><li class="level-3"><a href="#probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-">probl�matique: en quoi la 2 eme guerre mondial a franchi un cran supl�manitaire dans la violance de guerre par rapport a la premi�re gm?</a> <span class='tocIdInfo'>(probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-)</span></li><ul></ul><li class="level-3"><a href="#a-les-conquetes-de-l-axe-la-guerre-clair-">A Les conquetes de l'axe : "la guerre �clair"</a> <span class='tocIdInfo'>(a-les-conquetes-de-l-axe-la-guerre-clair-)</span></li><ul></ul><li class="level-3"><a href="#b-les-conquette-de-l-alier">B) Les conquette de l'alier</a> <span class='tocIdInfo'>(b-les-conquette-de-l-alier)</span></li></ul></ul></ul></ul>
+#La Deuximeme guerre mondiale (sept 1939 - sept 1945) 
+<p>Par rapport a la premiere guerre mondiale</p>
+<ul>
+<li>elle a durree 6 ans</li>
+<li>A touche tout les continant</li>
+<li>Sur terre, mer et airs</li>
+<li>Gerre plus totale, et plus violant(car guerre ideologique)</li>
+<li>
+<ul>
+<li>de morts civile que militaire</li>
+</ul>
+</li>
+</ul>
+<p>politique d'extermination</p>
+<ul>
+<li>
+<p>civiles</p>
+</li>
+<li>
+<p>ausii militaire</p>
+<ul>
+<li>Principalmeent propri�t�id</li>
+</ul>
+</li>
+<li>
+<p>Victimes:</p>
+<ul>
+<li>bombardement</li>
+<li>nagazaki et hirochima</li>
+</ul>
+</li>
+</ul>
+<p>La 2 eme guerre:</p>
+<ul>
+<li>guerre D'an�antisemen
+<ul>
+<li>Dispose : d'images</li>
+<li>Les lettres etait cencur�e</li>
+</ul>
+</li>
+</ul>
+<p>Cause im�diate de la guerre:
+- 1. Id�e d'expensionisme de l'italie(Entre-Deux guerre) et Allamnds et Japon
+- 2. Espace vital voulue par hitler (Race aryen)
+- 3. Marche a la guerre
+- Hitler conquit un certain nombre de territoire
+- 4. Anglais et la France n'a pas r�ponde a l'expensonisme d'Hitler
+- 5. Pacte Germano-Sovietyque (qui partage secretement la Pologne)</p>
+<p>Erreur Hitlmer: n'a pas mesurer l'ampleur de la tache: Envair un pays immense avec condition dificile (Terre brul�e comme avec napol�eon)</p>
+<p>C'est une guerre d'an�eantisment</p>
+<h3>probl�matique: en quoi la 2 eme guerre mondial a franchi un cran supl�manitaire dans la violance de guerre par rapport a la premi�re gm?<a id='probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-'></a></h3>
+<h2>Les grandes �tapes de la guerre.</h2>
+<p>[/home/ay/Cours2022Git/notes/HG/1.Theme1Limpactdelacrisede1929/grandesetapesdelaguerre.png]</p>
+<ol>
+<li>Les conquettes de l'axe(All italie Japon)</li>
+<li>retournement de situation, Midway(Pacifique), Stalingrad(Front russe), El alamein (Affrique du nord)</li>
+<li>La recononquter les victoires des alli�es (URSS, GB, USA, France-libre)</li>
+</ol>
+<h3>A Les conquetes de l'axe : &quot;la guerre �clair&quot;<a id='a-les-conquetes-de-l-axe-la-guerre-clair-'></a></h3>
+<p>Attaque par les Ard�nes (Pire endroit)</p>
+<p>R�giment eclusivement de chars</p>
+<p>Faut d�truire l'arriere et cr�e de la panique
+Les citoyens on fui et bloques les routes donc les militaires ne pevent plus passer</p>
+<p>LEs allmends font de thecnique de contournement</p>
+<p>L'arm�e aryen ne recule pas: pologne �cras�e en 3-4 semaines</p>
+<p>Drole de guerre, mai 1940
+La france �craseene mai-juin en1 1940 en 6 semaines</p>
+<p>France de vichy:
+- Envoyer tout les allemends contre les nazis vers les nazi</p>
+<p>Avec l'armistice la france, est partag�e en plusieurs zones, une partie occup�e par l'allmagne et l'autre par le mar�chal p�tin, L'angletaire reste seule contre les allmand(battaille d'angletaire) qui a resist� grace a son aviation, grace a churchild,
+allmends souhait�e d'envair les angletaires, battaille d'angletaire est une victoire pour churchill, de resister au bomnardement
+Premiere defaite strat�gique de hitler, il va reporter ses ambition sur la mer m�dit�ran�e, pour couper la</p>
+<p>Les americans restent isolationiste jusqu'au bombardement de perl harbor(ile hawai, ammercina) le 7 d�cemebte 1941</p>
+<p>A 2 excepetion:
+- mars 41: Rosvelt fait voter la loi pr�t-bail(preter ou donner des materiel militaire, ou marchandise aux alli�es, angalis puis france libre, a l'URSS, et la chine)
+- 14 aout, lorque churchild et rosvelt se rencontre, = chart de l'atlentique, qui pose les principe de la paix de future (pr�figure de l'ONU)</p>
+<p>invation de l'urss, le 22 juin 1941,i 5.5Millions de militaires  essentielement des allments, et italiens, roumain,
+- 5000 avionsn 3300 chars,
+- 1 er temps attaque foudroiantes: les russes sont battus. 4M de prissionais sovi�tique 23k chars sovi�tique, 20k avions d�truis en 3 mois, juin juillet aout septembre, l'ukraine est conquise
+-</p>
+<p>Les allements reprenne leur progression</p>
+<p>L'affrique du nord = colonie francaise et anglaise,</p>
+<p>Les colonie anglaise sont menacer car allmend cherche du p�trole
+Le proche oriend est occup�e depuis le debus de 1920 par les angletaires (Palestoine, Irak)</p>
+<p>Rommel</p>
+<p>Les all attaque l'egypte</p>
+<p>En novembre 42 les americains d�barque, General Eisenhower 100k hommes
+11 novemebre 1942, les allmend envaissent la france libre</p>
+<p>a partir des ann�e 30, les japonais, vivent dans sur un terriroitre etroite, avec un grande population, pas de recource naturelle, d�cide de cr�e un empire, et essaye de conquerir tout les pays qui peuvent raporter des recources,
+- chine 1931</p>
+<p>perl harbor victoire japonaise non complette</p>
+<hr />
+<h3>B) Les conquette de l'alier<a id='b-les-conquette-de-l-alier'></a></h3>
+<p>les batailles d�cicves (3):
+- stalingrade
+-
+-</p>
+<p>Tes rapidement represnnet le dessus sur les japonais. essesentielement car il se sont appuiller sur leur industrie d'armement,(en quqls mois, des millier de tout)</p>
+<p>Les japons savait qu'il pouvai tbarttre les am�ricans si il le font rapidement et d�finitivement, ce qui a �t� un echec (porte avion pas d�truit, et flotte am�ricaine plus immportantes) il voulait �tre le pays domminateur</p>
+<p>en mai 42: dans la mer de corrail un flotte japonaisse pr�pare un d�barquement en australie, et cette flotte esst d�ruite (Baitalle de la mer de corail)
+juin: l'avation americane repere une flotte japonaise a midway,</p>
+<p>ses 2 batailles se font de facon indirecte, s</p>
+<p>les americants active un reconquette succecive
+on voit se d�vloper des daticques de d�velpoement,
+le lance flame, les japonais se planqais, et les am�ricains utiliser un lance flames pour cuire les japonais</p>
+<p>Okinawa: les am�ricans d�barques sur cette ile mais la posibilit� pour les jap et am, soit d'envair les iles 1 a 1, soit aller plus vite(bombe atomique)</p>
+<p>lancer en 6 auou 1945: Hirochima
+et 3 j plus tart le 9: Nagazaki
+les 2 300000 morts + les victimes d'apres</p>
+<p>Stalingrade: Battaille la plus meuutrierre de la gerre, corps a corps</p>
+<p>Lib�ration centrale et</p>
+<p>L'arm�e rouge s'installe dans tout les europe centrale et pays orietauxs</p>
+<p>Juin et oaut: d�barquement en provance</p>
+<p>7 et 8 mai: cappitulation sans conditions = Rinces et berlin, Marechal De lattre de Tassigny</p>
+<p>Cons�quance:</p>
+<blockquote>
+<p>Russes: D�mocratie populaire, ()
+Periode des partages, bloque sovietique et occidentale de l'autre,</p>
+</blockquote>
+<blockquote>
+<p>L'allmagne est partag� en 2
+Partage, Cor�e du nord/sud</p>
+</blockquote>
+<blockquote>
+<p>Flux migratoires:</p>
+</blockquote>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>

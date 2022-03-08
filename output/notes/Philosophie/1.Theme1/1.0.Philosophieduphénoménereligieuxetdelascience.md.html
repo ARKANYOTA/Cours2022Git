@@ -1,0 +1,221 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../../.././exports/css/global.css">
+                <script src="../../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-le-sacr-et-le-profane">I) Le sacré et le profane</a> <span class='tocIdInfo'>(i-le-sacr-et-le-profane)</span></li><ul></ul><li class="level-2"><a href="#ii-science-et-religion-conflit-ou-harmonie-">II) Science et religion: conflit ou harmonie?</a> <span class='tocIdInfo'>(ii-science-et-religion-conflit-ou-harmonie-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-questions-cosmologique-et-cosmoguniques">1) Les questions cosmologique et cosmoguniques</a> <span class='tocIdInfo'>(1-les-questions-cosmologique-et-cosmoguniques)</span></li></ul></ul><li class="level-1"><a href="#les-fondements-de-la-d-mocratie">Les fondements de la démocratie</a> <span class='tocIdInfo'>(les-fondements-de-la-d-mocratie)</span></li><ul><ul></ul><li class="level-2"><a href="#la-la-cit-">La laïcité</a> <span class='tocIdInfo'>(la-la-cit-)</span></li><ul><ul></ul><li class="level-3"><a href="#i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-">I) Comparaison etre la Laicité en (France, Etat unis, Turquie)</a> <span class='tocIdInfo'>(i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-)</span></li><ul><ul></ul><li class="level-4"><a href="#a-heliocentricme-et-geocentrisme">a) Heliocentricme et geocentrisme</a> <span class='tocIdInfo'>(a-heliocentricme-et-geocentrisme)</span></li></ul><li class="level-3"><a href="#iii-la-question-du-big-bang">III) La question du big bang</a> <span class='tocIdInfo'>(iii-la-question-du-big-bang)</span></li><ul></ul><li class="level-3"><a href="#iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-">III) Karl Popper(1902 Autriche -> 1994 Londre) et le concept de réfutabilité</a> <span class='tocIdInfo'>(iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-)</span></li></ul></ul></ul></ul>
+# Philosophie du phénoméne religieux et de la science.
+<h2>I) Le sacré et le profane<a id='i-le-sacr-et-le-profane'></a></h2>
+<p>Penseur qui definissent le <em>dénominateur commun</em> de tt les religions est le sacré et le profane:
+<em>Emile Durkheim</em>: Historien des religion, Fr 1858 -&gt; 1917,
+- &quot;Les Formes élémantaires de la vie religieuse&quot; <u>1912</u>
+<em>Rudolf OTTO</em>: All 1869 -&gt; 1937,
+- &quot;le sacré&quot; 1917
+Numen: Numina -&gt; Le Numineux(Expreience)
+Le expreiance numineux
+Experiance au dela du rationel et de la raison.
+Exprence du (supra)/(sur)rationel,
+Une facination se dévloppe</p>
+<p>Proffanne(Utiliser dans vie courrante)( != Proffanateur(fait des proffanations= qq'un qui dégrade un lieu sucrée)) = Une personne qui n'est pas initier un domaine
+Profanne = (Pro(éloigné/hors) | Fanum(Latin)(Temple))</p>
+<blockquote>
+<p><em>Ciceron</em>: La religion est l'art de recuillir des connaissance sur les Dieux.
+Réligion RELIGIO (Relegere || Religare)</p>
+</blockquote>
+<p>Re	     | legere
+(se) re  | ceuillir =&gt; se receuillir
+| lire
+Religare = relier, se relier</p>
+<p>Religion: groupe humain organisée qui déférancie le sacrée du proffane et qui a pour but principal, de crée un double lien, lien vertical entre les humain et la transcendance(divin), et un lien horizontale entre les humain êux même,(comunotée des croyants) mais qui s'elargiesse a des but universel</p>
+<p><em>Mircea Eliade</em>: Philosophe roumain devenu americain 1907-&gt;1986
+- &quot;Le sacrée et le profane&quot; 1956</p>
+<p>2 pôles du numineux</p>
+<blockquote>
+<p><em>Réné gerard</em>: la violance et le sacré</p>
+</blockquote>
+<p>Croix Game &lt;== Svastica(REligion)</p>
+<p>Ordre de Tulé</p>
+<p>Svatisca etait étudier en Allmagne Au 19 eme Siècle</p>
+<p>Nazi ont prits la rune siegel,</p>
+<h2>II) Science et religion: conflit ou harmonie?<a id='ii-science-et-religion-conflit-ou-harmonie-'></a></h2>
+<h3>1) Les questions cosmologique et cosmoguniques<a id='1-les-questions-cosmologique-et-cosmoguniques'></a></h3>
+<h1>Les fondements de la démocratie<a id='les-fondements-de-la-d-mocratie'></a></h1>
+<h2>La laïcité<a id='la-la-cit-'></a></h2>
+<h3>I) Comparaison etre la Laicité en (France, Etat unis, Turquie)<a id='i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-'></a></h3>
+<h4>a) Heliocentricme et geocentrisme<a id='a-heliocentricme-et-geocentrisme'></a></h4>
+<p>Arsistaque de Samos -310 av JC -&gt; -230 av JC -&gt; héliocentrique
+Mathématicien et astronome grec
+Archimède
+Aristote -&gt; géocentrique
+Hypatia 360 ap JC -&gt; 415
+cf le film &quot;Agora&quot;</p>
+<p>St Thomas d'aquin: Le Thomisme</p>
+<p>16e siècle
+Copernic: N'a pas pris de proces, c'est un mathematicen , crée un model hélocientrique(Le publie a la fin de sa vie, et precise que tout et hypothétique,) =&gt; pendant 70 les cours d'astonomie, il est possible d'y enseigner le model de copernic</p>
+<p>Galilé: se prend un procès: car il montre le truc de l'heliocentrique</p>
+<p>Religions d'état = Religion écrit dans la constitutons
+1905 mutapha kemal atatuk</p>
+<p>Ibn Rushal = Averoes
+Moshé Ben Muinom = Maimonide</p>
+<p>Se soit pasioné par la pesé d'Aristote
+&quot;Le destin&quot; Youssef chain</p>
+<p>Philosophe au Cristanisme</p>
+<p>Girdano Bruno 16eme sciècle</p>
+<ul>
+<li>Coppernique</li>
+<li>Dit que le soleil n'est pas le centre mais est juste une étoile</li>
+<li>Fait ses étoiles soit aussi etouré des autres étoiles
+<ul>
+<li>Ne plait pas à l'inquisition
+<ul>
+<li>Leur a dit: votre dieu, je ne m'y refaire pas il a crée un petit univert anec la terre au centre, je me réfaire au dieu de l'univers qui est infini</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Gallilé: &quot;Le message des étoiles&quot; 1610
+1616: héliocentrique condamné</p>
+<p>&quot;Dialogue sur deux grand du systemes du monde&quot;: 1632</p>
+<p>Cardinal: Barbenini Urbain VIII</p>
+<h3>III) La question du big bang<a id='iii-la-question-du-big-bang'></a></h3>
+<p>Début 20e sciècle prouvé: Soleil=étoiles, planette tourne autour des étoiles
+Prouve qu'il exsiste autre galaxie(1er a découvir: andromède)</p>
+<p>Hubble+Joerge le Martre(Prêtre catholique) =&gt; qui met la théorie du big bang</p>
+<p>Pape de l'époque: Dit les scientifique font des découvertes fabuleuse, et se rapproche de la vision religieuse; il mange un truc, que la une existante supreme exsiste</p>
+<p>Polémique: Science contre la religion, dise que cette théorie est trop religieuce.</p>
+<h3>III) Karl Popper(1902 Autriche -&gt; 1994 Londre) et le concept de réfutabilité<a id='iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-'></a></h3>
+<p>Formation atypique: maths phuysique puis psycologie mais apres re maths/physiques ar il devient proffesseur</p>
+<p>Ils s'interesse à la philosophie, dueux branches: philo, politique</p>
+<p>Scientisme: Scienntiste(idéologie tres presante a lépoque, théorie scientifique comme vérité absolue)</p>
+<p>Citation: &quot;une théorie est scientifique, non pas parce que elle est vraie mais parce que elle refutable&quot;</p>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>

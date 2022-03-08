@@ -1,0 +1,170 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../../.././exports/css/global.css">
+                <script src="../../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-methodologie-de-l-introduction-de-la-population">I) Methodologie de l'introduction, de la population</a> <span class='tocIdInfo'>(i-methodologie-de-l-introduction-de-la-population)</span></li><ul><ul></ul><li class="level-3"><a href="#exemeple">Exemeple</a> <span class='tocIdInfo'>(exemeple)</span></li></ul><li class="level-2"><a href="#ii-leszen-mode-enjeux-et-la-conceptualisation">II) Leszen mode Enjeux et la conceptualisation</a> <span class='tocIdInfo'>(ii-leszen-mode-enjeux-et-la-conceptualisation)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-enjeux">1) Les enjeux</a> <span class='tocIdInfo'>(1-les-enjeux)</span></li><ul></ul><li class="level-3"><a href="#2-le-travail-de-conceptualisation">2) le travail de conceptualisation</a> <span class='tocIdInfo'>(2-le-travail-de-conceptualisation)</span></li></ul><li class="level-2"><a href="#iii-m-thodologiede-l-argumentation">III) Méthodologiede l'argumentation</a> <span class='tocIdInfo'>(iii-m-thodologiede-l-argumentation)</span></li></ul></ul></ul>
+# Disertationphilo
+<h2>I) Methodologie de l'introduction, de la population<a id='i-methodologie-de-l-introduction-de-la-population'></a></h2>
+<p>on écrit pour qq'un qui ignore le sujet.
+On introduit le probléme pas la question</p>
+<h3>Exemeple<a id='exemeple'></a></h3>
+<p><u>Seconde parte de l'introduction</u>
+Nous associons à priori les religions à des facteurs de paix entre les humains car elle prônes des valeurs de Fraternité, de solidarité, de compassion d'empathie. Cependant dans la pratique, est-ce toujours le cas?
+Les actes de violance commis par des croynts peuvent-ils nous conduire à généraliser, et à estimer que la violance acompagne le sacré?  La source de la violance est elle à chercher dans les religions ou bien dans la psychologie humaine?</p>
+<p>synthetisons ainsi notre questionnement:
+Les religions sont-elles source de violance</p>
+<h2>II) Leszen mode Enjeux et la conceptualisation<a id='ii-leszen-mode-enjeux-et-la-conceptualisation'></a></h2>
+<h3>1) Les enjeux<a id='1-les-enjeux'></a></h3>
+<p>Les religions sont'elles sources de violance?</p>
+<p>Nous allons maintenant mettre el lumières les enjeux, si les religion sont dans leur essence, c'est a dire dans leur fondemment source de violance, alors les religion s'avères très dangeureuse, et dans ce cas, il serait peut-être bon qu'elle disparaisent,
+Mais si les religions ne sont que parfois source de violance, alors ns devons faire un dignostique, pour trouver les cause de cette violance, et faire en sorte qu'a l'avenir, elle ne soit plus cause de violance</p>
+<h3>2) le travail de conceptualisation<a id='2-le-travail-de-conceptualisation'></a></h3>
+<p>Nous allons maintenant analyser les concept du sujet, une religion est un groupe humain, organiser autour de rites, qui mettent en lumière la diferancantion, entre le sacré et le profane, et qui a pour but essancielle de crée un double lien: lien vertcal entre humain et divain ainsi que un lien horizontal, lien entre êtres humains, le sujet nous demande si la violance est liée au religion. il faut differancier force et violance, la force peux être force morale, force de charactère, ou force physique. on emploit aussi le mot force, pour désiqner l'energie divine et dans ce cas il est assez equivalant au terme numineux, celui ci venant du latin numen qui desiqgne la puissance d'une divinité, qaunt a la violance, elle se traduit surtout par des agression physique, même si on parle parfois de violance verbale, de propots violants. dans ce sujet le verbe violance renvoie aux guerres de religions, à la terreur exercée par les régimes religieux extremiste, par des tribunaux religeiux, comme autre foix ceux de l'inquisition, et comme ajdhui, dans les pays qui appliques un vision très stricte de la Char'ia, au terroriste exercé par des extrémiste religieux. le mot source employer dans le sujet suggère un causalité: on nous demande si religion sont cause de violance, il y'a toute foix un sous entandu dans le sujet, qui sous entant une alternative: soit les religions sont tjr source de violance, soit elle ne sont que parfois source de violance, nous écarton la posibilité que elle ne soit jamais source de violance, carcela serait contredit par l'histoire et l'actualité.</p>
+<h2>III) Méthodologiede l'argumentation<a id='iii-m-thodologiede-l-argumentation'></a></h2>
+<p>Argumentation = argmuments (pas que d'exemples)(ou exemples pour montrer les arguments)</p>
+<p>Montrer au correccteur: que on peut se mettre a la place d'une autre personne(comme dans un débat)</p>
+<p>Penser par soi même,
+these que on va soutenir
+Plutot utiliser le nous.</p>
+<p>Ne pas soutenir 2 thèses contradictoires</p>
+<blockquote>
+<p>Sujet: (En politique), La fin justifie-t-elle les moyens?
+Maxime: La fin justifie les moyens: être pret a tout pour arriver a ses fins</p>
+</blockquote>
+<p>1ere partie = = examen de la thèse inverse de la notre. comme quoi la fin justifie les moyens en politique
+1er argument: arguement de l'efficacité
+2em argument: arguement des 2 morales</p>
+<p>2eme partie= mise en avant des objection à la 1er thèse (Critique de la 1ere thèse)
+critique de l'argumenet de l'efficacité</p>
+<p>3eme partie = notre thèse = la fin ne justifie pas les moyens en politique sauf dans quelques exceptions</p>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>

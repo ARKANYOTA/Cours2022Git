@@ -11,4 +11,7 @@ Pour éditer j'utilise vim(config [github.com/ARKANYOTA/dotfiles](https://github
 
 Et pour voir les Katex Math: [Notable.app](https://notable.app)
 
-
+## Render mes cours
+```bash
+node ~/markdowntohtml/index.js -i ~/Cours2022Git/notes/ -o ~/Cours2022Git/output --choosetheme --setinfolder ./exports --toc --render-math --dark --linker && ./exportall.sh 
+```

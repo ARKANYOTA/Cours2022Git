@@ -1,0 +1,333 @@
+<!doctype html>
+            <html lang="fr">
+            <head>
+                <meta charset="utf-8">
+                <title>Titre de la page</title>
+                <!-- Mettre tout ca dans un diossierr-->
+                
+                    <link rel="stylesheet" href="../.././exports/css/katex.min.css" crossorigin="anonymous">
+                    <script defer src="../.././exports/js/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+                    <script defer src="../.././exports/js/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" />
+                    <script defer src="../.././exports/js/asciimath2tex.umd.js"</script>
+
+                
+                <link rel="stylesheet" href="../.././exports/css/primer.css">
+                <link rel="stylesheet" href="../.././exports/css/highlightjs.css">
+                <link rel="stylesheet" href="../.././exports/css/global.css">
+                <script src="../.././exports/js/highlight.min.js"></script>
+            
+                <script>
+                    function changetheme(theme){
+                        if(theme.substring(0,4) === 'dark'){
+                            document.documentElement.setAttribute("data-color-mode", "dark");
+                            document.documentElement.setAttribute("data-dark-theme", theme);
+                        } else {
+                            document.documentElement.setAttribute("data-color-mode", "light");
+                            document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        document.cookie = "theme="+theme+"; path=/";
+                        // hljs.highlightAll();
+                        
+                    }
+                    function load_cookie(){
+                        document.cookie.split(';').forEach(function(c) {
+                            var m = c.trim().match(/theme=(.*)/);
+                            if(m) {
+                                changetheme(m[1]);
+                            }else{
+                                changetheme('dark')
+                            }
+                        });
+                   }
+                    load_cookie();
+                    document.onkeyup = function(e) {
+                      if (e.key === "m") {
+                          changetheme("dark");
+                      }
+                    };
+                    
+                    // TO KNOW: Si la page se reload en boucle, c'est probablement a cause de ceci
+                    // TOKNOW: If the page keeps reloading, it's probably because of this
+                    let currLocation = window.location.href.split('#')[1];
+                    if(currLocation){ 
+                        setTimeout(function(){
+                            window.location.href="#"+currLocation;
+                        }, 1000);
+                    }
+
+                </script>
+            </head>
+            <body>
+                <a href="index.html">BACK</a>
+                
+                <div class="themechose unselectable">
+                    <a onclick="changetheme('light')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a onclick="changetheme('dark')" class="theme-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                
+                <div class="tocAddOrRemoveLevel unselectable">
+                    <p>
+                        <a onclick="addTocLevel(false)" class="theme-button">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="currentColor" /></svg>                        </a>
+                        <span id="numberTocLevel">.</span>
+                        <a onclick="addTocLevel(true)" class="theme-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5C13 4.44772 12.5523 4 12 4Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <article class="markdown-body">
+                    <ul></ul>
+Rappel : Option 1 (book page 60) : wriite a letter
+<p>Championing Equality</p>
+<p>Vous menez une campagne publicitaire pour dénoncer le sexisme et les stéréotypes de genre dans la culture populaire au cours des 20e et 21e siècles. Vous écrivez une lettre ouverte sur votre site Web pour promouvoir l'égalité des genres dans les médias.
+Préparez vos arguments et organisez-les.
+► Méthode p. 245
+Trouvez un titre accrocheur pour votre campagne.
+Faites référence à des émissions de télévision, des films ou d'autres formes de culture populaire.
+Écrivez votre article.
+Incluez des références au passé, aux personnes qui ont défendu les croyances de la société avant vous.
+Proposez des idées pour améliorer la culture populaire.
+Donnez votre avis et comparez-le.</p>
+<p>J’identifie la consigne.
+Décrire
+Expliquer
+Donner son opinion
+Comparer
+Émettre des hypothèses
+Raconter
+Pour un devoir maison, je fais des recherches de données, de lexique et d’illustrations.</p>
+<p>Au brouillon
+Brainstorming : j’écris TOUS les mots qui me viennent à l’esprit. J’ajoute des synonymes, antonymes, verbes, adjectifs…
+Je fais un plan détaillé (idées principales pour deux ou trois parties). Un paragraphe = une idée.
+Je choisis des mots de liaison.
+Je réfléchis aux temps à employer.
+Je sélectionne des exemples dans mes expériences ou mes connaissances personnelles.</p>
+<p>Rédaction
+J’organise ma présentation.
+Je rédige ensuite l’introduction.
+Je fais des paragraphes en sautant des lignes.
+Je relis mon devoir.</p>
+<hr />
+<ul>
+<li>
+<p>sexsisme, stéréotypes</p>
+</li>
+<li>
+<p>promouvoir l'égalité des genres</p>
+</li>
+<li>
+<p>culture populaire du 20e 21e sciecle</p>
+</li>
+<li>
+<p>Quels sont les stéréotype Quel sont les places de chacun en ce moment</p>
+<ul>
+<li>Differance de salaire</li>
+<li>Droit et politique</li>
+<li>♀: Moins seraines dans la rue</li>
+<li>discrimination vers le ♀</li>
+<li>misogynie = discimination ♀</li>
+<li>misandrie = discrimination ♂</li>
+</ul>
+<p>-Les caractéristiques physiques : par exemple, les hommes sont forts et les femmes sont délicates</p>
+<ul>
+<li>
+<p>Les rôles sociaux : par exemple, les femmes s'occupent des enfants pendant que les hommes gagnent un salaire</p>
+</li>
+<li>
+<p>Les centres d’intérêt : par exemple, les femmes aiment faire les magasins et les hommes aiment regarder des émissions de sport</p>
+</li>
+<li>
+<p>Les métiers/occupations : par exemple, les hommes sont des ingénieurs, des agents de change ou des mineurs alors que les femmes sont institutrices, infirmières ou femmes au foyer.</p>
+</li>
+<li>
+<p>Adjectifs employées pour l'un et l'aure</p>
+<ul>
+<li>au sexe masculin : dominant, indépendant, ambitieux, agit comme un leader, prêt à prendre des risques, agressif, compétitif et athlétique ;</li>
+<li>au sexe féminin : affectueuse, enjouée, compatissante, sensible aux besoins des autres, douce, sympathique et aimant les enfants.</li>
+</ul>
+</li>
+<li>
+<p>le harcèlement sexuel ;</p>
+</li>
+<li>
+<p>les violences physiques (notamment violence conjugale) ;</p>
+</li>
+<li>
+<p>l'humour sexiste ;</p>
+</li>
+<li>
+<p>les remarques sexistes.</p>
+</li>
+</ul>
+<p>La philosophe Martha Nussbaum identifie sept façons de considérer une personne comme un objet110 :</p>
+<pre><code>  - l'instrumentalisation : il s'agit de traiter une personne comme un objet ;
+  - le déni de l'autonomie : considérer une personne comme non autonome ;
+  - la passivité : traiter une personne comme manquant de capacité à agir (agentivité) ;
+  - l'interchangeabilité : la personne est vue comme interchangeable avec des objets ;
+  - la possession : l'autre est considéré comme étant quelque chose qui peut être possédé ;
+  - le déni de subjectivité : ne pas considérer les sentiments et les expériences d'une personne ;
+  - la violabilité : traiter une personne comme si elle n'avait aucune limite à son intégrité.
+</code></pre>
+<p>Trois autres catégories ont été ajoutées par Rae Langton à celles de Nussbaum :</p>
+<pre><code>  - réduction au corps : identifier une personne à son corps ou à certaines parties corporelles ;
+  - réduction à l'apparence : considérer une personne selon son apparence physique ;
+  - réduction au silence : se comporter avec une personne en considérant cette dernière comme incapable de parler ou étant de nature silencieuse111
+</code></pre>
+</li>
+<li>
+<p>Pourquoi faudrait il changer / ça arangerait tout le monde</p>
+</li>
+</ul>
+<p>Recencement de tout les problemes due au sexsisme:</p>
+<p>Les problemes globeaux: Des salaires differants entre les hommes et le femmes a niveau egaux
+Femmes recoivent des comporetemtn sexsisme: tel que du hacelement sexuel, des violances physiques, remarques sexiste
+Des prejuges tels que les hommes sont forts et dominants, et femmes délicates et sympathuques, les femmes s'occuement des enfants et les hommes d'un salaire, des métierrs differmants: hommes sont des ingénieurs, agents et femmes infermières ou femme au foyers,</p>
+<p>Les arguements pour contrer ses problemes, et pourquoi changer ça: C'est d'abort une question de logique, c'est pas normal que le sexsisme exsite, Les comportements tel que le hercelement sexueles, vilance physique, remarques sexsite peuvent causée des troubles par la suite sur les personnes visée, surtout si c'est répeter sur une longue periode, Les préjugées sont nocifs pour les hommes et le femmes, car tout le monde est donc obliger de se conformée à la règle, et c'est plus dur de faire un voie qui est pas considérer de notre sexe.
+De plus desormais uin problème s'ajoute, s'est le fait d'être stéréotypée depuis l'enfance, et aussi de fait que les stéroétype soit désormée encrée dans le social et concidérée comme corect.</p>
+<p>Le moyen le plus efficace pour arreter ou diminuer le sexsisme, je pense est de passer par l'éducation même si sela va prendre beaucoup de temps.</p>
+<pre class="hljs"><code>En premier on peut parler des problemes globeaux avec le sexsisme, On peut citer des salaires differants entre les hommes et le femmes a niveau egaux, des femmes recoivent des comporetemtn sexsisme, tel que du hacelement sexuel, des violances physiques, remarques sexiste. Des prejuges tels que les hommes sont forts et dominants, et femmes délicates et sympathuques, les femmes doivent s'occuement des enfants et les hommes d'un salaire, des métierrs différants entre les 2 sexes, les hommes sont des ingénieurs ou agents et femmes infermières ou femme au foyers, 
+
+Pourquoi changer ça? C'est d'abort une question de logique, c'est pas normal que le sexsisme exsite, Les comportements tel que le hercelement sexueles, vilance physique, remarques sexsite peuvent causée des troubles par la suite sur les personnes visée, surtout si c'est répeter sur une longue periode. Les préjugées sont nocifs pour les hommes et le femmes, car tout le monde est donc obliger de se conformée à la règle, et c'est plus dur de faire un voie qui n'est pas considérer de notre sexe.
+De plus desormais un problème s'ajoute, s'est le fait d'être stéréotypée depuis l'enfance, et aussi de fait que les stéroétype soit désormée encrée dans le social et concidérée comme corect.
+
+Le moyen le plus efficace pour arreter ou diminuer le sexsisme, je pense est de passer par l'éducation même si sela va prendre beaucoup de temps.
+</code></pre>
+<p>First we can talk about global problems with sexism, We can cite different salaries between men and women at equal level, women receive sexism behaviors, such as sexual hatred, physical violence, sexist remarks. Prejudices such as men are strong and dominant, and women are delicate and sympathetic. Women must take care or raise children and household chores and men of earn money as breadwinner, different works between man and women, men are engineers or agents and women nurses or housewife,</p>
+<p>Why change that? It is abort a question of logic, it is not normal that the sexism exists, Behaviors such as the sexual hercelement, physical vilance, remarks sexsite can cause disorders later on the people concerned, especially if it is is repeat over a long period. Prejudice is harmful for both men and women, because everyone is therefore forced to conform to the rule, and it is harder to make a path that is not considered by our gender.
+Moreover now a problem is added, is the fact of being stereotyped since childhood, and also of the fact that the steroetype is now embedded in the social and considered as corect.</p>
+<p>I think the most efficient way to stop or decrease sexism is through education even though it will take a long time.</p>
+<ul>
+<li>Comment changer ça
+<ul>
+<li>l’auto-stéréotype : les individus se conforment volontairement aux stéréotypes d'un groupe déterminé. Les hommes et les femmes intègrent les stéréotypes dès l'enfance et adaptent leur comportement en fonction ;</li>
+<li>la confirmation : les individus constatent que les autres membres du groupe se conforment également aux stéréotypes de genre et suscitent des comportements qui vont dans leur sens. Ce processus renforce les stéréotypes en les faisant apparaître comme étant corrects et justifiés socialement ;</li>
+<li>la conformité : les personnes subissent la pression du groupe pour agir conformément aux stéréotypes de genre définis par le groupe. Les personnes déviantes (c’est-à-dire qui ne se conforment pas aux stéréotypes de genre) risquent la sanction du rejet social : elles peuvent être exclues du groupe. Pour éviter cela, les personnes déviantes emploient des contre-mesures pour être réintégrées dans le groupe (y compris l'adhésion à l'opinion erronée du groupe). La crainte de répercussions incite les déviants à faire usage de « tromperie », c’est-à-dire qu’ils dissimulent le fait qu'ils ne sont pas conformes aux stéréotypes. En conséquence, les personnes les plus à même de dénoncer les stéréotypes de genre sont les moins susceptibles de le faire à cause de la menace du groupe ;</li>
+<li>la permission : les individus sentent qu'il est légitime d'utiliser les stéréotypes de genre dictés par le groupe pour percevoir le comportement des autres. En effet, si la société estime que le sexisme n'est pas un grand mal, les individus sexistes n'éprouveront pas de scrupules à utiliser les stéréotypes de genre pour justifier leurs actions et leur discours.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Vocaulaire: Exo:
+breadwinner (n.) = gagneur de pain
+homemaker (n.) = personne gérant la maison et famille
+household (n.) = habitat
+husband (n.) = mari
+nuclear family = couple traditionnel
+suburbia (n.) = banlieue
+wife (n.) = épouse</p>
+<p>misogynous (adj.) = n'aime pas les femmes
+old-fashioned ≠ modern (adj.) = à l'ancienne
+patriarchal (adj.) = société controlée par les hommes
+traditional (adj.) = traditionel
+society's beliefs (exp.) = opinion commune
+sexism / male chauvinism (n.)  = sexisme
+conform to / with / obey = obéir, conformer</p>
+<p>household chores (exp.) = tâches ménagères
+duty / obligation (n.) = obligation
+educate / bring up / raise (v.) = éduquer
+instill (v.) = infliger/ancrer
+keep up / continue (v.) = continuer
+pass on (v.) = hériter
+take care of / look after (v.) = s'occuper de</p>
+<p>free oneself from (exp.) = se libérer de
+stand up for sthg. (exp.) = se révolter pour
+stuck in traditions (exp.) = coincé dans les traditions
+contest (v.) = compétition
+express (v.) = exprimer
+give up (v.)  = abandonner
+struggle (v.) = lutter</p>
+<p>modern conveniences (exp.) = ennuyances modernes
+advertisement (n.) = pub
+advertising (n.) = publiciter
+commercial (n.) = commercial
+marketing (n.) = marketing
+propaganda (n.) = propagande
+stay-at-home mother / housewife (exp.) = mère de foyer
+college / university (n.) = université
+rights (n.) = droits
+secretary (n.) = secrétaire
+stewardess /ˈstjuːədəs/ (n.) = hotesse
+workplace (n.) = lieu de travail
+earn money (v.) = gagner de l'argent</p>
+<p>College = university = faculté, université
+collège = junior High (school)
+lycée = high school</p>
+<hr />
+<p>Oral Opt 2:</p>
+<p>Magie du marketing</p>
+<p>Vous travaillez pour une entreprise de marketing. Lors d'une réunion sur un nouveau produit, vous discutez d'une nouvelle campagne publicitaire inspirée des stéréotypes des années 50. Mettez votre collègue au défi d'utiliser une représentation plus moderne des genres</p>
+<p>Renseignez-vous sur le produit dont vous faites la promotion.
+Préparez vos arguments et organisez-les.
+- ► Méthode p. 244
+- Trouvez un slogan accrocheur.
+- Faites une liste d'idées pour rendre la campagne publicitaire plus attrayante (couleurs, design, format : publicités ou publicités, etc.).
+- Faire des références au monde publicitaire du passé pour l'améliorer.</p>
+<p>Assurez-vous que vous pouvez interagir.
+- La clarté est le mot d’ordre : les phrases courtes sont encouragées, la syntaxe doit être allégée, les répétitions sont plus que tolérées.
+- Utilisez des phrases exclamatives pour prouver votre point de vue.
+- N'oubliez pas d'utiliser des remplisseurs d'espaces et des mots de liaison pour maintenir la conversation.</p>
+<p>Vous travaillez pour une entreprise de marketing. Lors d'une réunion sur un nouveau produit, vous discutez d'une nouvelle campagne publicitaire inspirée des stéréotypes des années 50. Mettez votre collègue au défi d'utiliser une représentation plus moderne des genres</p>
+<p>Je pense que l'on peut monderniser notre produit, non basée sur les sréréotypes des années 50, sinon cela risquede nous causer du boycaut, we need to set men and woman at equal level, beacuase here they are not, we also need to modernize the women clothes, we need to remove the pink color to women, and change her way of sitting.</p>
+<p>For modernize this advertizing campain, beacuse if we keep the ads like this we recive lot bad returns, we need to first change this sexsim slogan and its implication like women carelessness, change they dress with normal steet dress code, we can upscale the product, or for a full modern advertizing we can use graphical advertizing without actors like apple. we must not use the sexsim in foreground.</p>
+<p>Pour moderniser cette campagne publicitaire, car si nous gardons les publicités comme celle-ci, nous recevons beaucoup de mauvais retours, nous devons d'abord changer ce slogan sexsim et son implication comme l'insouciance des femmes, changer leur tenue avec un code vestimentaire normal, nous pouvons monter en gamme le produit, ou pour une publicité entièrement moderne, nous pouvons utiliser une publicité graphique sans acteurs comme Apple. il ne faut pas utiliser le sexsim en premier plan. ~
+To modernize this ad campaign, because if we keep ad like, this we get a lot of bad feedback, first we have to change the sexsim slogan and its implication like recklessness of women, change their outfit with a dress code normal, we can upgrade the product, or for an entirely modern advertisement, we can use a graphic advertisement without actors like Apple. sexsim should not be used in the foreground. ~</p>
+<h2>To modernize this ad campaign, because if we keep ad like this, we are going get a lot of bad feedback, first we have to change the sexsim slogan and its implication like recklessness of women, change their outfit with a normal dress code . we can for an entirely modern advertisement,  use a graphic advertisement without actors like Apple. the sexsim should not be used in the foreground.
+Pour moderniser cette campagne publicitaire, parce que si nous gardons une publicité comme celle-ci, nous allons avoir beaucoup de mauvais retours, nous devons d'abord changer le slogan sexsim et son implication comme l'imprudence des femmes, changer leur tenue avec un code vestimentaire normal. on peut pour une publicité tout à fait moderne, utiliser une publicité graphique sans acteurs comme Apple. le sexsim ne doit pas être utilisé au premier plan.</h2>
+<p>To modernize this ad campaign, because if we keep an ad like this we are going to have a lot of bad feedback, first we have to change the sexsim slogan and its implication like the carelessness of women, change their outfit with a normal dress code. we can for a completely modern advertisement, use graphic advertising without actors like Apple. sexsim should not be used in the foreground.</p>
+
+                </article>
+                <script>
+                    let currentTocLevel = 6;
+                    function nodisplayTocEltLevel(level){
+                        for(let i = level; i <= 6; i++){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = "none"
+                            })
+                        }
+                        for(let i = level; i >= 1; i--){
+                            Array.from(document.getElementsByClassName("level-"+i)).map(item => {
+                                item.style.display = ""
+                            })
+                        }
+                    }
+                    function addTocLevel(isAdd){
+                        if(isAdd){
+                            currentTocLevel = Math.min(currentTocLevel+1, 6)
+                        }
+                        else{
+                            currentTocLevel = Math.max(currentTocLevel-1, 1)
+                        }
+                        nodisplayTocEltLevel(currentTocLevel)
+                        document.getElementById("numberTocLevel").innerHTML = currentTocLevel
+                    }
+                   addTocLevel(true);
+                </script>
+            </body>
+            <footer id="end"></footerid>
+        </html>
