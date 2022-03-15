@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-philosophie-art-de-vivre-et-art-de-penser">I) Philosophie: Art de vivre et art de penser</a> <span class='tocIdInfo'>(i-philosophie-art-de-vivre-et-art-de-penser)</span></li><ul><ul></ul><li class="level-3"><a href="#1-philosophie-comme-art-de-vivre">1) Philosophie comme art de vivre</a> <span class='tocIdInfo'>(1-philosophie-comme-art-de-vivre)</span></li><ul></ul><li class="level-3"><a href="#2-philo-comme-art-de-penser">2) Philo comme art de penser</a> <span class='tocIdInfo'>(2-philo-comme-art-de-penser)</span></li></ul><li class="level-2"><a href="#ii-la-philosophie-comme-approche-de-la-sagesse-et-des-questions-existentielles-">II) La philosophie comme approche de la sagesse et des questions existentielles.</a> <span class='tocIdInfo'>(ii-la-philosophie-comme-approche-de-la-sagesse-et-des-questions-existentielles-)</span></li><ul></ul><li class="level-2"><a href="#iii-la-philo-comme-r-flexion-sur-la-religion-science-et-la-beaut-">III) La philo comme réflexion sur la religion, science et la beauté</a> <span class='tocIdInfo'>(iii-la-philo-comme-r-flexion-sur-la-religion-science-et-la-beaut-)</span></li><ul></ul><li class="level-2"><a href="#iv-la-philosophie-comme-initiation-aux-probl-matique-politique-">IV) La philosophie comme initiation aux problématique politique </a> <span class='tocIdInfo'>(iv-la-philosophie-comme-initiation-aux-probl-matique-politique-)</span></li></ul><li class="level-1"><a href="#les-17-notions-du-programe-de-philo">Les 17 notions du programe de philo</a> <span class='tocIdInfo'>(les-17-notions-du-programe-de-philo)</span></li></ul></ul>
-# Questcequelaphilosohie
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#questcequelaphilosohie">Questcequelaphilosohie</a> <span class='tocIdInfo'>(questcequelaphilosohie)</span></li><ul><ul></ul><li class="level-2"><a href="#i-philosophie-art-de-vivre-et-art-de-penser">I) Philosophie: Art de vivre et art de penser</a> <span class='tocIdInfo'>(i-philosophie-art-de-vivre-et-art-de-penser)</span></li><ul><ul></ul><li class="level-3"><a href="#1-philosophie-comme-art-de-vivre">1) Philosophie comme art de vivre</a> <span class='tocIdInfo'>(1-philosophie-comme-art-de-vivre)</span></li><ul></ul><li class="level-3"><a href="#2-philo-comme-art-de-penser">2) Philo comme art de penser</a> <span class='tocIdInfo'>(2-philo-comme-art-de-penser)</span></li></ul><li class="level-2"><a href="#ii-la-philosophie-comme-approche-de-la-sagesse-et-des-questions-existentielles-">II) La philosophie comme approche de la sagesse et des questions existentielles.</a> <span class='tocIdInfo'>(ii-la-philosophie-comme-approche-de-la-sagesse-et-des-questions-existentielles-)</span></li><ul></ul><li class="level-2"><a href="#iii-la-philo-comme-r-flexion-sur-la-religion-science-et-la-beaut-">III) La philo comme réflexion sur la religion, science et la beauté</a> <span class='tocIdInfo'>(iii-la-philo-comme-r-flexion-sur-la-religion-science-et-la-beaut-)</span></li><ul></ul><li class="level-2"><a href="#iv-la-philosophie-comme-initiation-aux-probl-matique-politique-">IV) La philosophie comme initiation aux problématique politique </a> <span class='tocIdInfo'>(iv-la-philosophie-comme-initiation-aux-probl-matique-politique-)</span></li></ul><li class="level-1"><a href="#les-17-notions-du-programe-de-philo">Les 17 notions du programe de philo</a> <span class='tocIdInfo'>(les-17-notions-du-programe-de-philo)</span></li></ul></ul></div>
+<h1>Questcequelaphilosohie<a id='questcequelaphilosohie'></a></h1>
 <h2>I) Philosophie: Art de vivre et art de penser<a id='i-philosophie-art-de-vivre-et-art-de-penser'></a></h2>
 <h3>1) Philosophie comme art de vivre<a id='1-philosophie-comme-art-de-vivre'></a></h3>
 <p>concept clef = concept d'harmonie.
@@ -183,6 +205,15 @@ Asie: persoidée d'avoir une vie anterieure et future</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

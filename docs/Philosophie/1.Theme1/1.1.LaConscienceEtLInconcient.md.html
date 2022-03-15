@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-la-conciennce-facult-de-connaissance-et-de-la-perception">I) La Conciennce, faculté de connaissance et de la perception</a> <span class='tocIdInfo'>(i-la-conciennce-facult-de-connaissance-et-de-la-perception)</span></li><ul></ul><li class="level-2"><a href="#ii-ren-descartes-1596--1650-et-la-questionde-la-concience-cogito-">II) René descartes(1596->1650) et la questionde la concience "Cogito"</a> <span class='tocIdInfo'>(ii-ren-descartes-1596--1650-et-la-questionde-la-concience-cogito-)</span></li><ul><ul></ul><li class="level-3"><a href="#2-le-doute-m-thodique-applic-e-au-ph-nom-ne-de-la-concience">2) Le doute méthodique applicée au phénomène de la concience</a> <span class='tocIdInfo'>(2-le-doute-m-thodique-applic-e-au-ph-nom-ne-de-la-concience)</span></li></ul><li class="level-2"><a href="#iii-certaines-critiques-adr-ss-es-la-philosophie-de-d-crates">III) Certaines critiques adréssées à la philosophie de Décrates</a> <span class='tocIdInfo'>(iii-certaines-critiques-adr-ss-es-la-philosophie-de-d-crates)</span></li><ul><ul></ul><li class="level-3"><a href="#5-la-critiqued-de-la-phenoenologie">5) La critiqued de la phenoenologie</a> <span class='tocIdInfo'>(5-la-critiqued-de-la-phenoenologie)</span></li></ul><li class="level-2"><a href="#iv-les-psycologie-de-l-inconcient">IV) Les psycologie de l'inconcient</a> <span class='tocIdInfo'>(iv-les-psycologie-de-l-inconcient)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#a-persona-anima-et-animus">a) Persona anima et animus</a> <span class='tocIdInfo'>(a-persona-anima-et-animus)</span></li></ul><li class="level-3"><a href="#2-les-traeaux-de-sigmund-freud">2) les traeaux de Sigmund Freud</a> <span class='tocIdInfo'>(2-les-traeaux-de-sigmund-freud)</span></li><ul><ul></ul><li class="level-4"><a href="#a-pr-sentation-de-s-freud">a) Présentation de S Freud</a> <span class='tocIdInfo'>(a-pr-sentation-de-s-freud)</span></li></ul><li class="level-3"><a href="#c-les-topiques-freudienne">c) les topiques freudienne</a> <span class='tocIdInfo'>(c-les-topiques-freudienne)</span></li><ul></ul><li class="level-3"><a href="#d-sublimation-et-refoulement">d) sublimation et refoulement</a> <span class='tocIdInfo'>(d-sublimation-et-refoulement)</span></li></ul></ul></ul></ul>
-# LaConscienceEtLInconcient
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#laconscienceetlinconcient">LaConscienceEtLInconcient</a> <span class='tocIdInfo'>(laconscienceetlinconcient)</span></li><ul><ul></ul><li class="level-2"><a href="#i-la-conciennce-facult-de-connaissance-et-de-la-perception">I) La Conciennce, faculté de connaissance et de la perception</a> <span class='tocIdInfo'>(i-la-conciennce-facult-de-connaissance-et-de-la-perception)</span></li><ul></ul><li class="level-2"><a href="#ii-ren-descartes-1596--1650-et-la-questionde-la-concience-cogito-">II) René descartes(1596->1650) et la questionde la concience "Cogito"</a> <span class='tocIdInfo'>(ii-ren-descartes-1596--1650-et-la-questionde-la-concience-cogito-)</span></li><ul><ul></ul><li class="level-3"><a href="#2-le-doute-m-thodique-applic-e-au-ph-nom-ne-de-la-concience">2) Le doute méthodique applicée au phénomène de la concience</a> <span class='tocIdInfo'>(2-le-doute-m-thodique-applic-e-au-ph-nom-ne-de-la-concience)</span></li></ul><li class="level-2"><a href="#iii-certaines-critiques-adr-ss-es-la-philosophie-de-d-crates">III) Certaines critiques adréssées à la philosophie de Décrates</a> <span class='tocIdInfo'>(iii-certaines-critiques-adr-ss-es-la-philosophie-de-d-crates)</span></li><ul><ul></ul><li class="level-3"><a href="#5-la-critiqued-de-la-phenoenologie">5) La critiqued de la phenoenologie</a> <span class='tocIdInfo'>(5-la-critiqued-de-la-phenoenologie)</span></li></ul><li class="level-2"><a href="#iv-les-psycologie-de-l-inconcient">IV) Les psycologie de l'inconcient</a> <span class='tocIdInfo'>(iv-les-psycologie-de-l-inconcient)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#a-persona-anima-et-animus">a) Persona anima et animus</a> <span class='tocIdInfo'>(a-persona-anima-et-animus)</span></li></ul><li class="level-3"><a href="#2-les-traeaux-de-sigmund-freud">2) les traeaux de Sigmund Freud</a> <span class='tocIdInfo'>(2-les-traeaux-de-sigmund-freud)</span></li><ul><ul></ul><li class="level-4"><a href="#a-pr-sentation-de-s-freud">a) Présentation de S Freud</a> <span class='tocIdInfo'>(a-pr-sentation-de-s-freud)</span></li></ul><li class="level-3"><a href="#c-les-topiques-freudienne">c) les topiques freudienne</a> <span class='tocIdInfo'>(c-les-topiques-freudienne)</span></li><ul></ul><li class="level-3"><a href="#d-sublimation-et-refoulement">d) sublimation et refoulement</a> <span class='tocIdInfo'>(d-sublimation-et-refoulement)</span></li></ul></ul></ul></ul></div>
+<h1>LaConscienceEtLInconcient<a id='laconscienceetlinconcient'></a></h1>
 <h2>I) La Conciennce, faculté de connaissance et de la perception<a id='i-la-conciennce-facult-de-connaissance-et-de-la-perception'></a></h2>
 <p>con | sienntia
 cum   le savoir, la connaissance, la science</p>
@@ -216,6 +238,15 @@ La psychiologie des pronfondeurs = psychanalyste jungienne</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

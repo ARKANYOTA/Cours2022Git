@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-evolution-s-l-ction-naturelle-adaptations-et-contraintes">I) Evolution, séléction naturelle, adaptations et contraintes</a> <span class='tocIdInfo'>(i-evolution-s-l-ction-naturelle-adaptations-et-contraintes)</span></li><ul><ul></ul><li class="level-3"><a href="#a-adatation-et-selection-naturelle">A) Adatation et selection naturelle</a> <span class='tocIdInfo'>(a-adatation-et-selection-naturelle)</span></li></ul><li class="level-2"><a href="#ii-mobilisation-des-concepts-volutionistepour-argir-">II) Mobilisation des concepts évolutionistepour argir </a> <span class='tocIdInfo'>(ii-mobilisation-des-concepts-volutionistepour-argir-)</span></li><ul><ul></ul><li class="level-3"><a href="#a-evolution-et-sant-">A) Evolution et santé</a> <span class='tocIdInfo'>(a-evolution-et-sant-)</span></li></ul></ul></ul></ul>
-# Chap 2: L'évoltiuin comme grille de lecture du monde
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#chap-2-l-voltiuin-comme-grille-de-lecture-du-monde">Chap 2: L'évoltiuin comme grille de lecture du monde</a> <span class='tocIdInfo'>(chap-2-l-voltiuin-comme-grille-de-lecture-du-monde)</span></li><ul><ul></ul><li class="level-2"><a href="#i-evolution-s-l-ction-naturelle-adaptations-et-contraintes">I) Evolution, séléction naturelle, adaptations et contraintes</a> <span class='tocIdInfo'>(i-evolution-s-l-ction-naturelle-adaptations-et-contraintes)</span></li><ul><ul></ul><li class="level-3"><a href="#a-adatation-et-selection-naturelle">A) Adatation et selection naturelle</a> <span class='tocIdInfo'>(a-adatation-et-selection-naturelle)</span></li></ul><li class="level-2"><a href="#ii-mobilisation-des-concepts-volutionistepour-argir-">II) Mobilisation des concepts évolutionistepour argir </a> <span class='tocIdInfo'>(ii-mobilisation-des-concepts-volutionistepour-argir-)</span></li><ul><ul></ul><li class="level-3"><a href="#a-evolution-et-sant-">A) Evolution et santé</a> <span class='tocIdInfo'>(a-evolution-et-sant-)</span></li></ul></ul></ul></ul></div>
+<h1>Chap 2: L'évoltiuin comme grille de lecture du monde<a id='chap-2-l-voltiuin-comme-grille-de-lecture-du-monde'></a></h1>
 <h2>I) Evolution, séléction naturelle, adaptations et contraintes<a id='i-evolution-s-l-ction-naturelle-adaptations-et-contraintes'></a></h2>
 <h3>A) Adatation et selection naturelle<a id='a-adatation-et-selection-naturelle'></a></h3>
 <p>Problème posé; koment explik l'exspsitance d(un organe aussi complexe que l'oeil.?</p>
@@ -146,6 +168,15 @@
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

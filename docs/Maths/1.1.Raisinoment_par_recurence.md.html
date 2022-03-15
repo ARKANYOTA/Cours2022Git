@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,14 +122,14 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#raisinoment-par-r-curence">Raisinoment par récurence</a> <span class='tocIdInfo'>(raisinoment-par-r-curence)</span></li><ul><ul></ul><li class="level-2"><a href="#tex-help">Tex Help</a> <span class='tocIdInfo'>(tex-help)</span></li><ul></ul><li class="level-2"><a href="#1-principe">1) Principe</a> <span class='tocIdInfo'>(1-principe)</span></li><ul></ul><li class="level-2"><a href="#2-exemple">2) Exemple</a> <span class='tocIdInfo'>(2-exemple)</span></li><ul><ul></ul><li class="level-3"><a href="#3-autre-cas-pratique">3) Autre cas pratique</a> <span class='tocIdInfo'>(3-autre-cas-pratique)</span></li><ul></ul><li class="level-3"><a href="#4-principe-de-r-currence-double">4) Principe de récurrence double</a> <span class='tocIdInfo'>(4-principe-de-r-currence-double)</span></li></ul><li class="level-2"><a href="#ii-suites-major-es---minor-es---boren-es-">II) SUITES MAJORéES - MINORéES - BORENéES.</a> <span class='tocIdInfo'>(ii-suites-major-es---minor-es---boren-es-)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#suite-major-e">Suite Majorée</a> <span class='tocIdInfo'>(suite-major-e)</span></li><ul></ul><li class="level-4"><a href="#suite-minor-e">Suite Minorée</a> <span class='tocIdInfo'>(suite-minor-e)</span></li><ul></ul><li class="level-4"><a href="#suites-born-e">Suites bornée</a> <span class='tocIdInfo'>(suites-born-e)</span></li></ul><li class="level-3"><a href="#2-propri-t-s-">2) Propriétés:</a> <span class='tocIdInfo'>(2-propri-t-s-)</span></li><ul></ul><li class="level-3"><a href="#4-suite-non-major-e-suite-non-minor-e">4) Suite non majorée; suite non minorée</a> <span class='tocIdInfo'>(4-suite-non-major-e-suite-non-minor-e)</span></li><ul><ul></ul><li class="level-4"><a href="#a-d-finition-d-une-suite-non-major-e">a) Définition d'une suite non majorée</a> <span class='tocIdInfo'>(a-d-finition-d-une-suite-non-major-e)</span></li><ul></ul><li class="level-4"><a href="#b-d-finition-d-une-suite-non-minor-e-">b) Définition d'une suite non minorée:</a> <span class='tocIdInfo'>(b-d-finition-d-une-suite-non-minor-e-)</span></li><ul></ul><li class="level-4"><a href="#c-une-suite-n-est-pas-born-e-lorque-n-n-est-pas-major-ou-bien-lorsqu-elle-est-pas-minor-">c) une suite n'est pas bornée, lorque n n'est pas majoré  ou bien lorsqu'elle est pas minoré.</a> <span class='tocIdInfo'>(c-une-suite-n-est-pas-born-e-lorque-n-n-est-pas-major-ou-bien-lorsqu-elle-est-pas-minor-)</span></li></ul></ul></ul></ul></ul>
----
-title: 1.1.Raisinoment par récurence
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#raisinoment-par-r-curence">Raisinoment par récurence</a> <span class='tocIdInfo'>(raisinoment-par-r-curence)</span></li><ul><ul></ul><li class="level-2"><a href="#tex-help">Tex Help</a> <span class='tocIdInfo'>(tex-help)</span></li><ul></ul><li class="level-2"><a href="#1-principe">1) Principe</a> <span class='tocIdInfo'>(1-principe)</span></li><ul></ul><li class="level-2"><a href="#2-exemple">2) Exemple</a> <span class='tocIdInfo'>(2-exemple)</span></li><ul><ul></ul><li class="level-3"><a href="#3-autre-cas-pratique">3) Autre cas pratique</a> <span class='tocIdInfo'>(3-autre-cas-pratique)</span></li><ul></ul><li class="level-3"><a href="#4-principe-de-r-currence-double">4) Principe de récurrence double</a> <span class='tocIdInfo'>(4-principe-de-r-currence-double)</span></li></ul><li class="level-2"><a href="#ii-suites-major-es---minor-es---boren-es-">II) SUITES MAJORéES - MINORéES - BORENéES.</a> <span class='tocIdInfo'>(ii-suites-major-es---minor-es---boren-es-)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#suite-major-e">Suite Majorée</a> <span class='tocIdInfo'>(suite-major-e)</span></li><ul></ul><li class="level-4"><a href="#suite-minor-e">Suite Minorée</a> <span class='tocIdInfo'>(suite-minor-e)</span></li><ul></ul><li class="level-4"><a href="#suites-born-e">Suites bornée</a> <span class='tocIdInfo'>(suites-born-e)</span></li></ul><li class="level-3"><a href="#2-propri-t-s-">2) Propriétés:</a> <span class='tocIdInfo'>(2-propri-t-s-)</span></li><ul></ul><li class="level-3"><a href="#4-suite-non-major-e-suite-non-minor-e">4) Suite non majorée; suite non minorée</a> <span class='tocIdInfo'>(4-suite-non-major-e-suite-non-minor-e)</span></li><ul><ul></ul><li class="level-4"><a href="#a-d-finition-d-une-suite-non-major-e">a) Définition d'une suite non majorée</a> <span class='tocIdInfo'>(a-d-finition-d-une-suite-non-major-e)</span></li><ul></ul><li class="level-4"><a href="#b-d-finition-d-une-suite-non-minor-e-">b) Définition d'une suite non minorée:</a> <span class='tocIdInfo'>(b-d-finition-d-une-suite-non-minor-e-)</span></li><ul></ul><li class="level-4"><a href="#c-une-suite-n-est-pas-born-e-lorque-n-n-est-pas-major-ou-bien-lorsqu-elle-est-pas-minor-">c) une suite n'est pas bornée, lorque n n'est pas majoré  ou bien lorsqu'elle est pas minoré.</a> <span class='tocIdInfo'>(c-une-suite-n-est-pas-born-e-lorque-n-n-est-pas-major-ou-bien-lorsqu-elle-est-pas-minor-)</span></li></ul></ul></ul></ul></ul></div>
+<hr />
+<h2>title: 1.1.Raisinoment par récurence
 title_custom: true
 created: 2021-09-07T06:19:20.025Z
-modified: 2021-12-09T09:03:32.532Z
----
+modified: 2021-12-09T09:03:32.532Z</h2>
 <h1>Raisinoment par récurence<a id='raisinoment-par-r-curence'></a></h1>
 <h2>Tex Help<a id='tex-help'></a></h2>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><mtable rowspacing="0.16em" columnalign="right center right" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mi>x</mi><mo>+</mo><mn>4</mn><mi>y</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mi>x</mi><mo>+</mo><mn>4</mn><mi>y</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">=</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
@@ -340,6 +361,15 @@ donc <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.o
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

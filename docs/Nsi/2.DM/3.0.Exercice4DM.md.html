@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,11 +122,12 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#1a-">1a)</a> <span class='tocIdInfo'>(1a-)</span></li><ul></ul><li class="level-1"><a href="#2a-">2a)</a> <span class='tocIdInfo'>(2a-)</span></li><ul></ul><li class="level-1"><a href="#2b-">2b)</a> <span class='tocIdInfo'>(2b-)</span></li><ul></ul><li class="level-1"><a href="#1a--">1a)</a> <span class='tocIdInfo'>(1a--)</span></li><ul></ul><li class="level-1"><a href="#1c-">1c)</a> <span class='tocIdInfo'>(1c-)</span></li><ul></ul><li class="level-1"><a href="#1c--">1c)</a> <span class='tocIdInfo'>(1c--)</span></li><ul></ul><li class="level-1"><a href="#2a--">2a)</a> <span class='tocIdInfo'>(2a--)</span></li><ul></ul><li class="level-1"><a href="#2b--">2b)</a> <span class='tocIdInfo'>(2b--)</span></li><ul></ul><li class="level-1"><a href="#3a-">3a)</a> <span class='tocIdInfo'>(3a-)</span></li><ul></ul><li class="level-1"><a href="#4-">4)</a> <span class='tocIdInfo'>(4-)</span></li><ul></ul><li class="level-1"><a href="#1a---">1a)</a> <span class='tocIdInfo'>(1a---)</span></li><ul></ul><li class="level-1"><a href="#1b-">1b)</a> <span class='tocIdInfo'>(1b-)</span></li><ul></ul><li class="level-1"><a href="#1c---">1c)</a> <span class='tocIdInfo'>(1c---)</span></li><ul></ul><li class="level-1"><a href="#2a---">2a)</a> <span class='tocIdInfo'>(2a---)</span></li><ul></ul><li class="level-1"><a href="#2b---">2b)</a> <span class='tocIdInfo'>(2b---)</span></li><ul></ul><li class="level-1"><a href="#3a--">3a)</a> <span class='tocIdInfo'>(3a--)</span></li><ul></ul><li class="level-1"><a href="#4--">4)</a> <span class='tocIdInfo'>(4--)</span></li></ul></ul>
-# Exercice4DM
-# 1a)<a id='1a-'></a>
-La racine est "Lea"
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#exercice4dm">Exercice4DM</a> <span class='tocIdInfo'>(exercice4dm)</span></li><ul></ul><li class="level-1"><a href="#2a-">2a)</a> <span class='tocIdInfo'>(2a-)</span></li><ul></ul><li class="level-1"><a href="#2b-">2b)</a> <span class='tocIdInfo'>(2b-)</span></li><ul></ul><li class="level-1"><a href="#1a-">1a)</a> <span class='tocIdInfo'>(1a-)</span></li><ul></ul><li class="level-1"><a href="#1c-">1c)</a> <span class='tocIdInfo'>(1c-)</span></li><ul></ul><li class="level-1"><a href="#1c--">1c)</a> <span class='tocIdInfo'>(1c--)</span></li><ul></ul><li class="level-1"><a href="#2a--">2a)</a> <span class='tocIdInfo'>(2a--)</span></li><ul></ul><li class="level-1"><a href="#2b--">2b)</a> <span class='tocIdInfo'>(2b--)</span></li><ul></ul><li class="level-1"><a href="#3a-">3a)</a> <span class='tocIdInfo'>(3a-)</span></li><ul></ul><li class="level-1"><a href="#4-">4)</a> <span class='tocIdInfo'>(4-)</span></li><ul></ul><li class="level-1"><a href="#1a--">1a)</a> <span class='tocIdInfo'>(1a--)</span></li><ul></ul><li class="level-1"><a href="#1b-">1b)</a> <span class='tocIdInfo'>(1b-)</span></li><ul></ul><li class="level-1"><a href="#1c---">1c)</a> <span class='tocIdInfo'>(1c---)</span></li><ul></ul><li class="level-1"><a href="#2a---">2a)</a> <span class='tocIdInfo'>(2a---)</span></li><ul></ul><li class="level-1"><a href="#2b---">2b)</a> <span class='tocIdInfo'>(2b---)</span></li><ul></ul><li class="level-1"><a href="#3a--">3a)</a> <span class='tocIdInfo'>(3a--)</span></li><ul></ul><li class="level-1"><a href="#4--">4)</a> <span class='tocIdInfo'>(4--)</span></li></ul></ul></div>
+<h1>Exercice4DM<a id='exercice4dm'></a></h1>
+<h1>1a)</h1>
+<p>La racine est &quot;Lea&quot;</p>
 <p>Les valeurs possibles des feuilles sont dans (&quot;Marc&quot;, &quot;Theo&quot;, &quot;Claire&quot;, &quot;Louis&quot;, &quot;Anne&quot;, &quot;Marie&quot;, &quot;Kevin&quot;, &quot;Lea&quot;)</p>
 <h1>2a)<a id='2a-'></a></h1>
 <pre class="hljs"><code><span class="hljs-keyword">def</span> <span class="hljs-title function_">occurence</span>(<span class="hljs-params">arb, nom</span>):
@@ -126,7 +148,7 @@ La racine est "Lea"
         <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
     <span class="hljs-keyword">return</span> a_gagne(gauche(arb, nom)) <span class="hljs-keyword">or</span> a_gagne(droite(arb, nom))
 </code></pre>
-<h1>1a)<a id='1a--'></a></h1>
+<h1>1a)<a id='1a-'></a></h1>
 <p>La racine est &quot;Lea&quot;</p>
 <p>Les valeurs possibles des feuilles sont dans (&quot;Marc&quot;, &quot;Theo&quot;, &quot;Claire&quot;, &quot;Louis&quot;, &quot;Anne&quot;, &quot;Marie&quot;, &quot;Kevin&quot;, &quot;Lea&quot;)</p>
 <h1>1c)<a id='1c-'></a></h1>
@@ -173,7 +195,7 @@ La racine est "Lea"
 ---
 
 
-<span class="hljs-comment"># 1a)&lt;a id=&#x27;1a---&#x27;&gt;&lt;/a&gt;</span>
+<span class="hljs-comment"># 1a)&lt;a id=&#x27;1a--&#x27;&gt;&lt;/a&gt;</span>
 La racine est <span class="hljs-string">&quot;Lea&quot;</span>
 
 Les valeurs possibles des feuilles sont dans (<span class="hljs-string">&quot;Marc&quot;</span>, <span class="hljs-string">&quot;Theo&quot;</span>, <span class="hljs-string">&quot;Claire&quot;</span>, <span class="hljs-string">&quot;Louis&quot;</span>, <span class="hljs-string">&quot;Anne&quot;</span>, <span class="hljs-string">&quot;Marie&quot;</span>, <span class="hljs-string">&quot;Kevin&quot;</span>, <span class="hljs-string">&quot;Lea&quot;</span>)
@@ -268,6 +290,15 @@ Les valeurs possibles des feuilles sont dans (<span class="hljs-string">&quot;Ma
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

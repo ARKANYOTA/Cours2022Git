@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,13 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#2-0-nombres-complexes-aspect-algebriques">2.0.Nombres complexes, Aspect Algebriques</a> <span class='tocIdInfo'>(2-0-nombres-complexes-aspect-algebriques)</span></li><ul><ul></ul><li class="level-2"><a href="#i-vocabulaire-re-im-">I) Vocabulaire <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">ℜ</mi><mi mathvariant="normal">ℑ</mi></mrow><annotation encoding="application/x-tex">\Re \Im</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">ℜℑ</span></span></span></span></a> <span class='tocIdInfo'>(i-vocabulaire-re-im-)</span></li><ul></ul><li class="level-2"><a href="#ii-conjug-">II) Conjugé</a> <span class='tocIdInfo'>(ii-conjug-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-">2) Propriété</a> <span class='tocIdInfo'>(2-propri-t-)</span></li></ul><li class="level-2"><a href="#iii-module">III) Module</a> <span class='tocIdInfo'>(iii-module)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition-">1) Définition</a> <span class='tocIdInfo'>(1-d-finition-)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s)</span></li></ul><li class="level-2"><a href="#iv-equation-du-second-degr-">IV) Equation du second degré</a> <span class='tocIdInfo'>(iv-equation-du-second-degr-)</span></li></ul></ul></ul>
----
-title: 2.0.Nombres complexes, Aspect Algebriques
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#2-0-nombres-complexes-aspect-algebriques">2.0.Nombres complexes, Aspect Algebriques</a> <span class='tocIdInfo'>(2-0-nombres-complexes-aspect-algebriques)</span></li><ul><ul></ul><li class="level-2"><a href="#i-vocabulaire-re-im-">I) Vocabulaire <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">ℜ</mi><mi mathvariant="normal">ℑ</mi></mrow><annotation encoding="application/x-tex">\Re \Im</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">ℜℑ</span></span></span></span></a> <span class='tocIdInfo'>(i-vocabulaire-re-im-)</span></li><ul></ul><li class="level-2"><a href="#ii-conjug-">II) Conjugé</a> <span class='tocIdInfo'>(ii-conjug-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-">2) Propriété</a> <span class='tocIdInfo'>(2-propri-t-)</span></li></ul><li class="level-2"><a href="#iii-module">III) Module</a> <span class='tocIdInfo'>(iii-module)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition-">1) Définition</a> <span class='tocIdInfo'>(1-d-finition-)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s)</span></li></ul><li class="level-2"><a href="#iv-equation-du-second-degr-">IV) Equation du second degré</a> <span class='tocIdInfo'>(iv-equation-du-second-degr-)</span></li></ul></ul></ul></div>
+<hr />
+<h2>title: 2.0.Nombres complexes, Aspect Algebriques
 created: 2021-10-13T12:43:14.057Z
-modified: 2022-02-16T13:40:14.567Z
----
+modified: 2022-02-16T13:40:14.567Z</h2>
 <h1>2.0.Nombres complexes, Aspect Algebriques<a id='2-0-nombres-complexes-aspect-algebriques'></a></h1>
 <h2>I) Vocabulaire <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">ℜ</mi><mi mathvariant="normal">ℑ</mi></mrow><annotation encoding="application/x-tex">\Re \Im</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">ℜℑ</span></span></span></span><a id='i-vocabulaire-re-im-'></a></h2>
 <p>On sait qu'il n'exsiste pas de nombre réel vérifiant <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x^2=-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span></p>
@@ -553,6 +574,15 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,13 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#-divisibilit-congruence"> Divisibilité, congruence</a> <span class='tocIdInfo'>(-divisibilit-congruence)</span></li><ul><ul></ul><li class="level-2"><a href="#tex-">Tex </a> <span class='tocIdInfo'>(tex-)</span></li><ul></ul><li class="level-2"><a href="#i-arithm-tique-r-gles-du-jeu">I) Arithmétique, règles du jeu</a> <span class='tocIdInfo'>(i-arithm-tique-r-gles-du-jeu)</span></li><ul></ul><li class="level-2"><a href="#ii-divisibilit-">II) Divisibilité</a> <span class='tocIdInfo'>(ii-divisibilit-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s)</span></li></ul><li class="level-2"><a href="#ii-ensemble-n-z-">II) Ensemble <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi mathvariant="double-struck">Z</mi></mrow><annotation encoding="application/x-tex">n\Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathnormal">n</span><span class="mord mathbb">Z</span></span></span></span></a> <span class='tocIdInfo'>(ii-ensemble-n-z-)</span></li><ul></ul><li class="level-2"><a href="#iv-division-euclidienne">IV Division euclidienne</a> <span class='tocIdInfo'>(iv-division-euclidienne)</span></li><ul><ul><ul><ul></ul><li class="level-5"><a href="#preuve">Preuve</a> <span class='tocIdInfo'>(preuve)</span></li><ul></ul><li class="level-5"><a href="#unicit-">Unicité: </a> <span class='tocIdInfo'>(unicit-)</span></li></ul></ul></ul><li class="level-2"><a href="#v-congruence">V) Congruence</a> <span class='tocIdInfo'>(v-congruence)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-fninition">1) Défninition</a> <span class='tocIdInfo'>(1-d-fninition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s-">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s-)</span></li></ul><li class="level-2"><a href="#vi-critaire-de-divisibilit-">VI Critaire de divisibilité</a> <span class='tocIdInfo'>(vi-critaire-de-divisibilit-)</span></li><ul><ul></ul><li class="level-3"><a href="#par-10">Par 10</a> <span class='tocIdInfo'>(par-10)</span></li></ul></ul></ul></ul>
----
-title: 1.0.DivisibilieCongruence
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#-divisibilit-congruence"> Divisibilité, congruence</a> <span class='tocIdInfo'>(-divisibilit-congruence)</span></li><ul><ul></ul><li class="level-2"><a href="#tex-">Tex </a> <span class='tocIdInfo'>(tex-)</span></li><ul></ul><li class="level-2"><a href="#i-arithm-tique-r-gles-du-jeu">I) Arithmétique, règles du jeu</a> <span class='tocIdInfo'>(i-arithm-tique-r-gles-du-jeu)</span></li><ul></ul><li class="level-2"><a href="#ii-divisibilit-">II) Divisibilité</a> <span class='tocIdInfo'>(ii-divisibilit-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s)</span></li></ul><li class="level-2"><a href="#ii-ensemble-n-z-">II) Ensemble <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi mathvariant="double-struck">Z</mi></mrow><annotation encoding="application/x-tex">n\Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathnormal">n</span><span class="mord mathbb">Z</span></span></span></span></a> <span class='tocIdInfo'>(ii-ensemble-n-z-)</span></li><ul></ul><li class="level-2"><a href="#iv-division-euclidienne">IV Division euclidienne</a> <span class='tocIdInfo'>(iv-division-euclidienne)</span></li><ul><ul><ul><ul></ul><li class="level-5"><a href="#preuve">Preuve</a> <span class='tocIdInfo'>(preuve)</span></li><ul></ul><li class="level-5"><a href="#unicit-">Unicité: </a> <span class='tocIdInfo'>(unicit-)</span></li></ul></ul></ul><li class="level-2"><a href="#v-congruence">V) Congruence</a> <span class='tocIdInfo'>(v-congruence)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-fninition">1) Défninition</a> <span class='tocIdInfo'>(1-d-fninition)</span></li><ul></ul><li class="level-3"><a href="#2-propri-t-s-">2) Propriétés</a> <span class='tocIdInfo'>(2-propri-t-s-)</span></li></ul><li class="level-2"><a href="#vi-critaire-de-divisibilit-">VI Critaire de divisibilité</a> <span class='tocIdInfo'>(vi-critaire-de-divisibilit-)</span></li><ul><ul></ul><li class="level-3"><a href="#par-10">Par 10</a> <span class='tocIdInfo'>(par-10)</span></li></ul></ul></ul></ul></div>
+<hr />
+<h2>title: 1.0.DivisibilieCongruence
 created: 2021-10-14T11:47:43.530Z
-modified: 2022-02-15T22:41:19.708Z
----
+modified: 2022-02-15T22:41:19.708Z</h2>
 <h1>Divisibilité, congruence<a id='-divisibilit-congruence'></a></h1>
 <h2>Tex <a id='tex-'></a></h2>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∃</mi></mrow><annotation encoding="application/x-tex">\exist</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span></span></span></span> = exist (existe)
@@ -391,6 +412,15 @@ Donc : <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

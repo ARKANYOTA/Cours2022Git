@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-le-sacr-et-le-profane">I) Le sacré et le profane</a> <span class='tocIdInfo'>(i-le-sacr-et-le-profane)</span></li><ul></ul><li class="level-2"><a href="#ii-science-et-religion-conflit-ou-harmonie-">II) Science et religion: conflit ou harmonie?</a> <span class='tocIdInfo'>(ii-science-et-religion-conflit-ou-harmonie-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-questions-cosmologique-et-cosmoguniques">1) Les questions cosmologique et cosmoguniques</a> <span class='tocIdInfo'>(1-les-questions-cosmologique-et-cosmoguniques)</span></li></ul></ul><li class="level-1"><a href="#les-fondements-de-la-d-mocratie">Les fondements de la démocratie</a> <span class='tocIdInfo'>(les-fondements-de-la-d-mocratie)</span></li><ul><ul></ul><li class="level-2"><a href="#la-la-cit-">La laïcité</a> <span class='tocIdInfo'>(la-la-cit-)</span></li><ul><ul></ul><li class="level-3"><a href="#i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-">I) Comparaison etre la Laicité en (France, Etat unis, Turquie)</a> <span class='tocIdInfo'>(i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-)</span></li><ul><ul></ul><li class="level-4"><a href="#a-heliocentricme-et-geocentrisme">a) Heliocentricme et geocentrisme</a> <span class='tocIdInfo'>(a-heliocentricme-et-geocentrisme)</span></li></ul><li class="level-3"><a href="#iii-la-question-du-big-bang">III) La question du big bang</a> <span class='tocIdInfo'>(iii-la-question-du-big-bang)</span></li><ul></ul><li class="level-3"><a href="#iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-">III) Karl Popper(1902 Autriche -> 1994 Londre) et le concept de réfutabilité</a> <span class='tocIdInfo'>(iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-)</span></li></ul></ul></ul></ul>
-# Philosophie du phénoméne religieux et de la science.
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#philosophie-du-ph-nom-ne-religieux-et-de-la-science-">Philosophie du phénoméne religieux et de la science.</a> <span class='tocIdInfo'>(philosophie-du-ph-nom-ne-religieux-et-de-la-science-)</span></li><ul><ul></ul><li class="level-2"><a href="#i-le-sacr-et-le-profane">I) Le sacré et le profane</a> <span class='tocIdInfo'>(i-le-sacr-et-le-profane)</span></li><ul></ul><li class="level-2"><a href="#ii-science-et-religion-conflit-ou-harmonie-">II) Science et religion: conflit ou harmonie?</a> <span class='tocIdInfo'>(ii-science-et-religion-conflit-ou-harmonie-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-questions-cosmologique-et-cosmoguniques">1) Les questions cosmologique et cosmoguniques</a> <span class='tocIdInfo'>(1-les-questions-cosmologique-et-cosmoguniques)</span></li></ul></ul><li class="level-1"><a href="#les-fondements-de-la-d-mocratie">Les fondements de la démocratie</a> <span class='tocIdInfo'>(les-fondements-de-la-d-mocratie)</span></li><ul><ul></ul><li class="level-2"><a href="#la-la-cit-">La laïcité</a> <span class='tocIdInfo'>(la-la-cit-)</span></li><ul><ul></ul><li class="level-3"><a href="#i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-">I) Comparaison etre la Laicité en (France, Etat unis, Turquie)</a> <span class='tocIdInfo'>(i-comparaison-etre-la-laicit-en-france-etat-unis-turquie-)</span></li><ul><ul></ul><li class="level-4"><a href="#a-heliocentricme-et-geocentrisme">a) Heliocentricme et geocentrisme</a> <span class='tocIdInfo'>(a-heliocentricme-et-geocentrisme)</span></li></ul><li class="level-3"><a href="#iii-la-question-du-big-bang">III) La question du big bang</a> <span class='tocIdInfo'>(iii-la-question-du-big-bang)</span></li><ul></ul><li class="level-3"><a href="#iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-">III) Karl Popper(1902 Autriche -> 1994 Londre) et le concept de réfutabilité</a> <span class='tocIdInfo'>(iii-karl-popper-1902-autriche---1994-londre-et-le-concept-de-r-futabilit-)</span></li></ul></ul></ul></ul></div>
+<h1>Philosophie du phénoméne religieux et de la science.<a id='philosophie-du-ph-nom-ne-religieux-et-de-la-science-'></a></h1>
 <h2>I) Le sacré et le profane<a id='i-le-sacr-et-le-profane'></a></h2>
 <p>Penseur qui definissent le <em>dénominateur commun</em> de tt les religions est le sacré et le profane:
 <em>Emile Durkheim</em>: Historien des religion, Fr 1858 -&gt; 1917,
@@ -215,6 +237,15 @@ Prouve qu'il exsiste autre galaxie(1er a découvir: andromède)</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

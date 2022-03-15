@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-des-racines-et-des-pratiques-communes">I) Des racines et des pratiques communes</a> <span class='tocIdInfo'>(i-des-racines-et-des-pratiques-communes)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#1-l-impact-de-la-grande-guerre">1) L'impact de la grande guerre</a> <span class='tocIdInfo'>(1-l-impact-de-la-grande-guerre)</span></li><ul></ul><li class="level-4"><a href="#2-le-poids-de-la-crise-conomique-">2) Le poids de la crise économique.</a> <span class='tocIdInfo'>(2-le-poids-de-la-crise-conomique-)</span></li></ul><li class="level-3"><a href="#b-une-soci-t-contol-e-">B) Une société contolée:</a> <span class='tocIdInfo'>(b-une-soci-t-contol-e-)</span></li><ul></ul><li class="level-3"><a href="#c-une-conomie-dirig-e">C) Une économie dirigée</a> <span class='tocIdInfo'>(c-une-conomie-dirig-e)</span></li><ul><ul></ul><li class="level-4"><a href="#1-allemagne-et-italie">1) Allemagne et Italie</a> <span class='tocIdInfo'>(1-allemagne-et-italie)</span></li><ul></ul><li class="level-4"><a href="#2-urss">2) URSS</a> <span class='tocIdInfo'>(2-urss)</span></li></ul></ul><li class="level-2"><a href="#ii-des-id-ologie-diff-rentes-qui-l-gitiment-la-violance">II) Des idéologie différentes qui légitiment la violance</a> <span class='tocIdInfo'>(ii-des-id-ologie-diff-rentes-qui-l-gitiment-la-violance)</span></li><ul><ul></ul><li class="level-3"><a href="#a-socialisme-sovi-tique">A) Socialisme soviétique</a> <span class='tocIdInfo'>(a-socialisme-sovi-tique)</span></li><ul></ul><li class="level-3"><a href="#b-le-fachisme-italien">B Le fachisme italien</a> <span class='tocIdInfo'>(b-le-fachisme-italien)</span></li><ul></ul><li class="level-3"><a href="#c-le-nazisme">C) Le Nazisme</a> <span class='tocIdInfo'>(c-le-nazisme)</span></li></ul><li class="level-2"><a href="#iii-le-r-ve-d-un-nouvel-ordre-europ-en">III) Le rêve d'un nouvel ordre européen</a> <span class='tocIdInfo'>(iii-le-r-ve-d-un-nouvel-ordre-europ-en)</span></li><ul><ul></ul><li class="level-3"><a href="#b-la-guerre-d-espagne">B) La Guerre d'Espagne</a> <span class='tocIdInfo'>(b-la-guerre-d-espagne)</span></li><ul></ul><li class="level-3"><a href="#c-marche-vers-la-guerr">C) Marche vers la guerr</a> <span class='tocIdInfo'>(c-marche-vers-la-guerr)</span></li></ul></ul></ul></ul>
-# Les regimes totalitairesà la recherche d'une nouvelle géopolituqe européne
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#les-regimes-totalitaires-la-recherche-d-une-nouvelle-g-opolituqe-europ-ne">Les regimes totalitairesà la recherche d'une nouvelle géopolituqe européne</a> <span class='tocIdInfo'>(les-regimes-totalitaires-la-recherche-d-une-nouvelle-g-opolituqe-europ-ne)</span></li><ul><ul></ul><li class="level-2"><a href="#i-des-racines-et-des-pratiques-communes">I) Des racines et des pratiques communes</a> <span class='tocIdInfo'>(i-des-racines-et-des-pratiques-communes)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#1-l-impact-de-la-grande-guerre">1) L'impact de la grande guerre</a> <span class='tocIdInfo'>(1-l-impact-de-la-grande-guerre)</span></li><ul></ul><li class="level-4"><a href="#2-le-poids-de-la-crise-conomique-">2) Le poids de la crise économique.</a> <span class='tocIdInfo'>(2-le-poids-de-la-crise-conomique-)</span></li></ul><li class="level-3"><a href="#b-une-soci-t-contol-e-">B) Une société contolée:</a> <span class='tocIdInfo'>(b-une-soci-t-contol-e-)</span></li><ul></ul><li class="level-3"><a href="#c-une-conomie-dirig-e">C) Une économie dirigée</a> <span class='tocIdInfo'>(c-une-conomie-dirig-e)</span></li><ul><ul></ul><li class="level-4"><a href="#1-allemagne-et-italie">1) Allemagne et Italie</a> <span class='tocIdInfo'>(1-allemagne-et-italie)</span></li><ul></ul><li class="level-4"><a href="#2-urss">2) URSS</a> <span class='tocIdInfo'>(2-urss)</span></li></ul></ul><li class="level-2"><a href="#ii-des-id-ologie-diff-rentes-qui-l-gitiment-la-violance">II) Des idéologie différentes qui légitiment la violance</a> <span class='tocIdInfo'>(ii-des-id-ologie-diff-rentes-qui-l-gitiment-la-violance)</span></li><ul><ul></ul><li class="level-3"><a href="#a-socialisme-sovi-tique">A) Socialisme soviétique</a> <span class='tocIdInfo'>(a-socialisme-sovi-tique)</span></li><ul></ul><li class="level-3"><a href="#b-le-fachisme-italien">B Le fachisme italien</a> <span class='tocIdInfo'>(b-le-fachisme-italien)</span></li><ul></ul><li class="level-3"><a href="#c-le-nazisme">C) Le Nazisme</a> <span class='tocIdInfo'>(c-le-nazisme)</span></li></ul><li class="level-2"><a href="#iii-le-r-ve-d-un-nouvel-ordre-europ-en">III) Le rêve d'un nouvel ordre européen</a> <span class='tocIdInfo'>(iii-le-r-ve-d-un-nouvel-ordre-europ-en)</span></li><ul><ul></ul><li class="level-3"><a href="#b-la-guerre-d-espagne">B) La Guerre d'Espagne</a> <span class='tocIdInfo'>(b-la-guerre-d-espagne)</span></li><ul></ul><li class="level-3"><a href="#c-marche-vers-la-guerr">C) Marche vers la guerr</a> <span class='tocIdInfo'>(c-marche-vers-la-guerr)</span></li></ul></ul></ul></ul></div>
+<h1>Les regimes totalitairesà la recherche d'une nouvelle géopolituqe européne<a id='les-regimes-totalitaires-la-recherche-d-une-nouvelle-g-opolituqe-europ-ne'></a></h1>
 <p>Regime sensitaire: + d'import = plus de votes</p>
 <p>URSS: Constament en guerre
 Staline: Degage les gens contre lui(trotsiki)
@@ -326,6 +348,15 @@ Rhénanie (allors que elle leur est interdit)</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

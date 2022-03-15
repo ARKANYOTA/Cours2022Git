@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-methodologie-de-l-introduction-de-la-population">I) Methodologie de l'introduction, de la population</a> <span class='tocIdInfo'>(i-methodologie-de-l-introduction-de-la-population)</span></li><ul><ul></ul><li class="level-3"><a href="#exemeple">Exemeple</a> <span class='tocIdInfo'>(exemeple)</span></li></ul><li class="level-2"><a href="#ii-leszen-mode-enjeux-et-la-conceptualisation">II) Leszen mode Enjeux et la conceptualisation</a> <span class='tocIdInfo'>(ii-leszen-mode-enjeux-et-la-conceptualisation)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-enjeux">1) Les enjeux</a> <span class='tocIdInfo'>(1-les-enjeux)</span></li><ul></ul><li class="level-3"><a href="#2-le-travail-de-conceptualisation">2) le travail de conceptualisation</a> <span class='tocIdInfo'>(2-le-travail-de-conceptualisation)</span></li></ul><li class="level-2"><a href="#iii-m-thodologiede-l-argumentation">III) Méthodologiede l'argumentation</a> <span class='tocIdInfo'>(iii-m-thodologiede-l-argumentation)</span></li></ul></ul></ul>
-# Disertationphilo
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#disertationphilo">Disertationphilo</a> <span class='tocIdInfo'>(disertationphilo)</span></li><ul><ul></ul><li class="level-2"><a href="#i-methodologie-de-l-introduction-de-la-population">I) Methodologie de l'introduction, de la population</a> <span class='tocIdInfo'>(i-methodologie-de-l-introduction-de-la-population)</span></li><ul><ul></ul><li class="level-3"><a href="#exemeple">Exemeple</a> <span class='tocIdInfo'>(exemeple)</span></li></ul><li class="level-2"><a href="#ii-leszen-mode-enjeux-et-la-conceptualisation">II) Leszen mode Enjeux et la conceptualisation</a> <span class='tocIdInfo'>(ii-leszen-mode-enjeux-et-la-conceptualisation)</span></li><ul><ul></ul><li class="level-3"><a href="#1-les-enjeux">1) Les enjeux</a> <span class='tocIdInfo'>(1-les-enjeux)</span></li><ul></ul><li class="level-3"><a href="#2-le-travail-de-conceptualisation">2) le travail de conceptualisation</a> <span class='tocIdInfo'>(2-le-travail-de-conceptualisation)</span></li></ul><li class="level-2"><a href="#iii-m-thodologiede-l-argumentation">III) Méthodologiede l'argumentation</a> <span class='tocIdInfo'>(iii-m-thodologiede-l-argumentation)</span></li></ul></ul></ul></div>
+<h1>Disertationphilo<a id='disertationphilo'></a></h1>
 <h2>I) Methodologie de l'introduction, de la population<a id='i-methodologie-de-l-introduction-de-la-population'></a></h2>
 <p>on écrit pour qq'un qui ignore le sujet.
 On introduit le probléme pas la question</p>
@@ -164,6 +186,15 @@ critique de l'argumenet de l'efficacité</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

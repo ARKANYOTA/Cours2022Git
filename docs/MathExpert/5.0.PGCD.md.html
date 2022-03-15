@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,13 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#5-0-pgcd">5.0.PGCD</a> <span class='tocIdInfo'>(5-0-pgcd)</span></li><ul><ul></ul><li class="level-2"><a href="#i-pgcd">I) PGCD</a> <span class='tocIdInfo'>(i-pgcd)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-premi-res-propri-t-s-ok-">2) Premières propriétés {ok}</a> <span class='tocIdInfo'>(2-premi-res-propri-t-s-ok-)</span></li></ul><li class="level-2"><a href="#ii-propri-t-fondamentale-de-a-z-b-z-">II) Propriété fondamentale de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi mathvariant="double-struck">Z</mi><mo>+</mo><mi>b</mi><mi mathvariant="double-struck">Z</mi></mrow><annotation encoding="application/x-tex">a\Z + b\Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7722em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord mathbb">Z</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord mathbb">Z</span></span></span></span></a> <span class='tocIdInfo'>(ii-propri-t-fondamentale-de-a-z-b-z-)</span></li><ul><ul></ul><li class="level-3"><a href="#iii-algorithme-d-euclide">III) Algorithme d'Euclide</a> <span class='tocIdInfo'>(iii-algorithme-d-euclide)</span></li><ul><ul><ul></ul><li class="level-5"><a href="#algorithme-des-diff-rences">Algorithme des différences</a> <span class='tocIdInfo'>(algorithme-des-diff-rences)</span></li><ul></ul><li class="level-5"><a href="#algorithme-d-euclide">Algorithme d'Euclide</a> <span class='tocIdInfo'>(algorithme-d-euclide)</span></li></ul></ul></ul><li class="level-2"><a href="#iv-nombres-premiers-entre-eux">IV) Nombres premiers entre eux</a> <span class='tocIdInfo'>(iv-nombres-premiers-entre-eux)</span></li><ul><ul></ul><li class="level-3"><a href="#1-homog-n-it-">1) Homogénéité</a> <span class='tocIdInfo'>(1-homog-n-it-)</span></li><ul></ul><li class="level-3"><a href="#2-th-oreme-de-b-zout">2) Théoreme de Bézout</a> <span class='tocIdInfo'>(2-th-oreme-de-b-zout)</span></li><ul></ul><li class="level-3"><a href="#3-th-oreme-de-gauss">3) Théoreme de Gauss</a> <span class='tocIdInfo'>(3-th-oreme-de-gauss)</span></li></ul><li class="level-2"><a href="#v-quations-diophantiennes">V. Équations Diophantiennes</a> <span class='tocIdInfo'>(v-quations-diophantiennes)</span></li><ul></ul><li class="level-2"><a href="#vi-remont-e-de-l-algorithme-d-euclide">VI. Remontée de l'algorithme d'Euclide</a> <span class='tocIdInfo'>(vi-remont-e-de-l-algorithme-d-euclide)</span></li><ul></ul><li class="level-2"><a href="#vii-ppcm-plus-petit-commun-multiple-">VII. PPCM (Plus petit commun multiple)</a> <span class='tocIdInfo'>(vii-ppcm-plus-petit-commun-multiple-)</span></li></ul></ul></ul>
----
-title: 5.0.PGCD
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#5-0-pgcd">5.0.PGCD</a> <span class='tocIdInfo'>(5-0-pgcd)</span></li><ul><ul></ul><li class="level-2"><a href="#i-pgcd">I) PGCD</a> <span class='tocIdInfo'>(i-pgcd)</span></li><ul><ul></ul><li class="level-3"><a href="#1-d-finition">1) Définition</a> <span class='tocIdInfo'>(1-d-finition)</span></li><ul></ul><li class="level-3"><a href="#2-premi-res-propri-t-s-ok-">2) Premières propriétés {ok}</a> <span class='tocIdInfo'>(2-premi-res-propri-t-s-ok-)</span></li></ul><li class="level-2"><a href="#ii-propri-t-fondamentale-de-a-z-b-z-">II) Propriété fondamentale de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi mathvariant="double-struck">Z</mi><mo>+</mo><mi>b</mi><mi mathvariant="double-struck">Z</mi></mrow><annotation encoding="application/x-tex">a\Z + b\Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7722em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord mathbb">Z</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mord mathbb">Z</span></span></span></span></a> <span class='tocIdInfo'>(ii-propri-t-fondamentale-de-a-z-b-z-)</span></li><ul><ul></ul><li class="level-3"><a href="#iii-algorithme-d-euclide">III) Algorithme d'Euclide</a> <span class='tocIdInfo'>(iii-algorithme-d-euclide)</span></li><ul><ul><ul></ul><li class="level-5"><a href="#algorithme-des-diff-rences">Algorithme des différences</a> <span class='tocIdInfo'>(algorithme-des-diff-rences)</span></li><ul></ul><li class="level-5"><a href="#algorithme-d-euclide">Algorithme d'Euclide</a> <span class='tocIdInfo'>(algorithme-d-euclide)</span></li></ul></ul></ul><li class="level-2"><a href="#iv-nombres-premiers-entre-eux">IV) Nombres premiers entre eux</a> <span class='tocIdInfo'>(iv-nombres-premiers-entre-eux)</span></li><ul><ul></ul><li class="level-3"><a href="#1-homog-n-it-">1) Homogénéité</a> <span class='tocIdInfo'>(1-homog-n-it-)</span></li><ul></ul><li class="level-3"><a href="#2-th-oreme-de-b-zout">2) Théoreme de Bézout</a> <span class='tocIdInfo'>(2-th-oreme-de-b-zout)</span></li><ul></ul><li class="level-3"><a href="#3-th-oreme-de-gauss">3) Théoreme de Gauss</a> <span class='tocIdInfo'>(3-th-oreme-de-gauss)</span></li></ul><li class="level-2"><a href="#v-quations-diophantiennes">V. Équations Diophantiennes</a> <span class='tocIdInfo'>(v-quations-diophantiennes)</span></li><ul></ul><li class="level-2"><a href="#vi-remont-e-de-l-algorithme-d-euclide">VI. Remontée de l'algorithme d'Euclide</a> <span class='tocIdInfo'>(vi-remont-e-de-l-algorithme-d-euclide)</span></li><ul></ul><li class="level-2"><a href="#vii-ppcm-plus-petit-commun-multiple-">VII. PPCM (Plus petit commun multiple)</a> <span class='tocIdInfo'>(vii-ppcm-plus-petit-commun-multiple-)</span></li></ul></ul></ul></div>
+<hr />
+<h2>title: 5.0.PGCD
 created: 2022-01-05T14:11:07.254Z
-modified: 2022-03-03T20:55:10.226Z
----
+modified: 2022-03-03T20:55:10.226Z</h2>
 <h1>5.0.PGCD<a id='5-0-pgcd'></a></h1>
 <p>[[@TOC]]</p>
 <p>Si <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≡</mo><msup><mi>a</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mrow><mo fence="true">(</mo><mi>b</mi><mo fence="true">)</mo></mrow><mo>⇒</mo><mi>a</mi><mo>∧</mo><mi>b</mi><mo>=</mo><msup><mi>a</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo>∧</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a \equiv a ' \left( b \right ) \Rightarrow a \wedge b = a ' \wedge b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4637em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathnormal">b</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></p>
@@ -480,6 +501,15 @@ donc <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.o
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

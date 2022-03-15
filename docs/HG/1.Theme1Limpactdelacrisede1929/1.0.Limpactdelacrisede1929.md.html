@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-la-crise-est-n-e-au-tats-unis">I) La crise est née au états Unis</a> <span class='tocIdInfo'>(i-la-crise-est-n-e-au-tats-unis)</span></li><ul><ul></ul><li class="level-3"><a href="#a-le-krach-bourier-d-octobre-1929">A) Le krach bourier d'octobre 1929</a> <span class='tocIdInfo'>(a-le-krach-bourier-d-octobre-1929)</span></li><ul><ul></ul><li class="level-4"><a href="#d-crire">Décrire</a> <span class='tocIdInfo'>(d-crire)</span></li></ul><li class="level-3"><a href="#b-les-causes-bulles-sp-culative">B) Les causes bulles spéculative</a> <span class='tocIdInfo'>(b-les-causes-bulles-sp-culative)</span></li><ul><ul></ul><li class="level-4"><a href="#expliquer-">Expliquer </a> <span class='tocIdInfo'>(expliquer-)</span></li></ul><li class="level-3"><a href="#c-de-la-crise-boursi-re-la-crise-g-n-rale-durable">C) De la crise boursière à la crise générale/durable</a> <span class='tocIdInfo'>(c-de-la-crise-boursi-re-la-crise-g-n-rale-durable)</span></li></ul><li class="level-2"><a href="#ii-la-crise-devient-mondiale">II) La crise devient mondiale</a> <span class='tocIdInfo'>(ii-la-crise-devient-mondiale)</span></li><ul><ul></ul><li class="level-3"><a href="#a-la-crise-en-am-rique-latine">A) La crise en Amérique latine</a> <span class='tocIdInfo'>(a-la-crise-en-am-rique-latine)</span></li><ul></ul><li class="level-3"><a href="#b-la-crise-en-europe-">B) La crise en Europe.</a> <span class='tocIdInfo'>(b-la-crise-en-europe-)</span></li><ul></ul><li class="level-3"><a href="#c-la-crise-dans-les-colonies">C) La crise dans les colonies</a> <span class='tocIdInfo'>(c-la-crise-dans-les-colonies)</span></li></ul><li class="level-2"><a href="#iii-les-rem-des-la-crise-">III) Les remèdes à la crise/</a> <span class='tocIdInfo'>(iii-les-rem-des-la-crise-)</span></li><ul><ul></ul><li class="level-3"><a href="#b-le-front-populaire-">B) Le front populaire,   </a> <span class='tocIdInfo'>(b-le-front-populaire-)</span></li></ul></ul></ul></ul>
-# Limpactdelacrisede1929 : déséquilibre économique et sociauxo
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#limpactdelacrisede1929-d-s-quilibre-conomique-et-sociauxo">Limpactdelacrisede1929 : déséquilibre économique et sociauxo</a> <span class='tocIdInfo'>(limpactdelacrisede1929-d-s-quilibre-conomique-et-sociauxo)</span></li><ul><ul></ul><li class="level-2"><a href="#i-la-crise-est-n-e-au-tats-unis">I) La crise est née au états Unis</a> <span class='tocIdInfo'>(i-la-crise-est-n-e-au-tats-unis)</span></li><ul><ul></ul><li class="level-3"><a href="#a-le-krach-bourier-d-octobre-1929">A) Le krach bourier d'octobre 1929</a> <span class='tocIdInfo'>(a-le-krach-bourier-d-octobre-1929)</span></li><ul><ul></ul><li class="level-4"><a href="#d-crire">Décrire</a> <span class='tocIdInfo'>(d-crire)</span></li></ul><li class="level-3"><a href="#b-les-causes-bulles-sp-culative">B) Les causes bulles spéculative</a> <span class='tocIdInfo'>(b-les-causes-bulles-sp-culative)</span></li><ul><ul></ul><li class="level-4"><a href="#expliquer-">Expliquer </a> <span class='tocIdInfo'>(expliquer-)</span></li></ul><li class="level-3"><a href="#c-de-la-crise-boursi-re-la-crise-g-n-rale-durable">C) De la crise boursière à la crise générale/durable</a> <span class='tocIdInfo'>(c-de-la-crise-boursi-re-la-crise-g-n-rale-durable)</span></li></ul><li class="level-2"><a href="#ii-la-crise-devient-mondiale">II) La crise devient mondiale</a> <span class='tocIdInfo'>(ii-la-crise-devient-mondiale)</span></li><ul><ul></ul><li class="level-3"><a href="#a-la-crise-en-am-rique-latine">A) La crise en Amérique latine</a> <span class='tocIdInfo'>(a-la-crise-en-am-rique-latine)</span></li><ul></ul><li class="level-3"><a href="#b-la-crise-en-europe-">B) La crise en Europe.</a> <span class='tocIdInfo'>(b-la-crise-en-europe-)</span></li><ul></ul><li class="level-3"><a href="#c-la-crise-dans-les-colonies">C) La crise dans les colonies</a> <span class='tocIdInfo'>(c-la-crise-dans-les-colonies)</span></li></ul><li class="level-2"><a href="#iii-les-rem-des-la-crise-">III) Les remèdes à la crise/</a> <span class='tocIdInfo'>(iii-les-rem-des-la-crise-)</span></li><ul><ul></ul><li class="level-3"><a href="#b-le-front-populaire-">B) Le front populaire,   </a> <span class='tocIdInfo'>(b-le-front-populaire-)</span></li></ul></ul></ul></ul></div>
+<h1>Limpactdelacrisede1929 : déséquilibre économique et sociauxo<a id='limpactdelacrisede1929-d-s-quilibre-conomique-et-sociauxo'></a></h1>
 <p>Années 20: Periode de dévlipmemnt du model américan: automobile, instalation dans less banlieus(suburbs)(car moyen de transport disponible),
 Le américans, il ont de la place partout, devlopement des villes, devlopement grate ciel, idée de consomation, systeme boursier, vivre à crédot,
 ↓
@@ -285,6 +307,15 @@ Les territoires n'ont pas donnes/contrat pas respecter,</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

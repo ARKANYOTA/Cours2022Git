@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,52 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul></ul>
-# TheFigthForSocialJustice
-<p>Page 199</p>
-<p>PATH B</p>
-<p>The fight for social justice</p>
-<p>:wq</p>
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#thefigthforsocialjustice">TheFigthForSocialJustice</a> <span class='tocIdInfo'>(thefigthforsocialjustice)</span></li></ul></ul></div>
+<h1>TheFigthForSocialJustice<a id='thefigthforsocialjustice'></a></h1>
+<p>Deliver a Speech</p>
+<p>p207</p>
+<p>You are a famous figure from the 21st century. To celebrate Black History Month in the USA, you deliver a speech, in which you pay tribute to one of the leading figures of the Civil Rights Movement</p>
+<p>allez sur des archive de speacj</p>
+<p>➜ Prepare and organize your arguments. You must:
+Introduce yourself.
+Present the person you chose and explain why he or she is so important in American history.
+Explain how her or his actions have an ongoing impact on today’s America.
+Give your opinion.
+► Méthode p. 244
+➜ Deliver your speech.
+Speak for at least 3 minutes.
+Keep your eyes on your audience and not on your notes while delivering your speech.
+Pay attention to intonation and pronunciation.</p>
+<hr />
+<p>I am Joe Biden, the current, the 46(fourty sixth)
+president of United States of America,.
+I am here to deliver a speech to the people of the
+United States beause today is the begining of the Black
+History Month. I am here to pay tribute to one of
+the leading figures of the Civil Rights Movement.
+Harriet Tubman, born in March 1822(eighteen twentytwo),
+and dead in 1913(ninteen thirdteen) as woman,
+who free 70 enslaved people in 13(thirdteen) missions,
+by the road to freedom, the Underground Railroad.
+And help some other pepole to free by himself, giving
+them instrinctions.
+Her actions, have had an ongoing impact on today’s America,
+because she help the movement to free people, help
+Civil Rights Movement to be stronger, help the people
+to be free.
+She (showdhus)showed us the utility of every action,
+everyone can do something to help the people.
+She showed us the possibility of freedom for Civil Rights Movements, at a time,
+when it was not simple.
+She showed us the way so that today we can change towards an absolute freedom.
+I am think, is very important to us, to the people,
+to fight for our freedom, is important to get peopole like her,
+for the Movement.</p>
+<p>Rosa Parks, someone who was a black,</p>
+<p>and f-out(fought) to keep her place in bus and as a black, she was so important in American history, because she has a pivotal role in the Montgomery bus boycott, who protected
+clodette colvin</p>
 
                 </article>
                 <script>
@@ -135,6 +195,15 @@
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

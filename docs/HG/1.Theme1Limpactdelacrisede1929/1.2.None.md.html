@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul><ul></ul><li class="level-3"><a href="#probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-">probl�matique: en quoi la 2 eme guerre mondial a franchi un cran supl�manitaire dans la violance de guerre par rapport a la premi�re gm?</a> <span class='tocIdInfo'>(probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-)</span></li><ul></ul><li class="level-3"><a href="#a-les-conquetes-de-l-axe-la-guerre-clair-">A Les conquetes de l'axe : "la guerre �clair"</a> <span class='tocIdInfo'>(a-les-conquetes-de-l-axe-la-guerre-clair-)</span></li><ul></ul><li class="level-3"><a href="#b-les-conquette-de-l-alier">B) Les conquette de l'alier</a> <span class='tocIdInfo'>(b-les-conquette-de-l-alier)</span></li></ul></ul></ul></ul>
-#La Deuximeme guerre mondiale (sept 1939 - sept 1945) 
+                    <div id='TocItem'><ul><ul><ul><ul><ul></ul><li class="level-3"><a href="#probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-">probl�matique: en quoi la 2 eme guerre mondial a franchi un cran supl�manitaire dans la violance de guerre par rapport a la premi�re gm?</a> <span class='tocIdInfo'>(probl-matique-en-quoi-la-2-eme-guerre-mondial-a-franchi-un-cran-supl-manitaire-dans-la-violance-de-guerre-par-rapport-a-la-premi-re-gm-)</span></li><ul></ul><li class="level-3"><a href="#a-les-conquetes-de-l-axe-la-guerre-clair-">A Les conquetes de l'axe : "la guerre �clair"</a> <span class='tocIdInfo'>(a-les-conquetes-de-l-axe-la-guerre-clair-)</span></li><ul></ul><li class="level-3"><a href="#b-les-conquette-de-l-alier">B) Les conquette de l'alier</a> <span class='tocIdInfo'>(b-les-conquette-de-l-alier)</span></li></ul></ul></ul></ul></div>
+<p>#La Deuximeme guerre mondiale (sept 1939 - sept 1945)</p>
 <p>Par rapport a la premiere guerre mondiale</p>
 <ul>
 <li>elle a durree 6 ans</li>
@@ -256,6 +278,15 @@ Partage, Cor�e du nord/sud</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-la-tradition-grec-des-banquets-philosophiques">I) La tradition grec des banquets philosophiques</a> <span class='tocIdInfo'>(i-la-tradition-grec-des-banquets-philosophiques)</span></li><ul></ul><li class="level-2"><a href="#ii-pr-sentation-de-platon-pusi-d-aristophane">II) Présentation de Platon, pusi d'Aristophane</a> <span class='tocIdInfo'>(ii-pr-sentation-de-platon-pusi-d-aristophane)</span></li><ul></ul><li class="level-2"><a href="#iii-etude-de-1er-extrait-discours-d-aristophane-p61-et-suivant-">III) Etude de 1er extrait = discours d'aristophane (p61 et suivant)</a> <span class='tocIdInfo'>(iii-etude-de-1er-extrait-discours-d-aristophane-p61-et-suivant-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-cosmololique-et-">1) cosmololique et </a> <span class='tocIdInfo'>(1-cosmololique-et-)</span></li><ul></ul><li class="level-3"><a href="#2-la-question-l-evolution-des-tres-vivants">2) La question l'evolution des êtres vivants</a> <span class='tocIdInfo'>(2-la-question-l-evolution-des-tres-vivants)</span></li><ul><ul></ul><li class="level-4"><a href="#a-le-fixisme-">a)  le fixisme </a> <span class='tocIdInfo'>(a-le-fixisme-)</span></li><ul></ul><li class="level-4"><a href="#b-le-th-orie-de-la-mark-et-darwin">b) Le théorie de La mark et Darwin</a> <span class='tocIdInfo'>(b-le-th-orie-de-la-mark-et-darwin)</span></li><ul></ul><li class="level-4"><a href="#c-les-visionn-de-pierre-teillhiard-et-heri-bergson">c) Les visionn de Pierre Teillhiard et heri bergson</a> <span class='tocIdInfo'>(c-les-visionn-de-pierre-teillhiard-et-heri-bergson)</span></li></ul></ul></ul></ul></ul>
-# Présentation_du_banquet de platon
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#pr-sentation_du_banquet-de-platon">Présentation_du_banquet de platon</a> <span class='tocIdInfo'>(pr-sentation_du_banquet-de-platon)</span></li><ul><ul></ul><li class="level-2"><a href="#i-la-tradition-grec-des-banquets-philosophiques">I) La tradition grec des banquets philosophiques</a> <span class='tocIdInfo'>(i-la-tradition-grec-des-banquets-philosophiques)</span></li><ul></ul><li class="level-2"><a href="#ii-pr-sentation-de-platon-pusi-d-aristophane">II) Présentation de Platon, pusi d'Aristophane</a> <span class='tocIdInfo'>(ii-pr-sentation-de-platon-pusi-d-aristophane)</span></li><ul></ul><li class="level-2"><a href="#iii-etude-de-1er-extrait-discours-d-aristophane-p61-et-suivant-">III) Etude de 1er extrait = discours d'aristophane (p61 et suivant)</a> <span class='tocIdInfo'>(iii-etude-de-1er-extrait-discours-d-aristophane-p61-et-suivant-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-cosmololique-et-">1) cosmololique et </a> <span class='tocIdInfo'>(1-cosmololique-et-)</span></li><ul></ul><li class="level-3"><a href="#2-la-question-l-evolution-des-tres-vivants">2) La question l'evolution des êtres vivants</a> <span class='tocIdInfo'>(2-la-question-l-evolution-des-tres-vivants)</span></li><ul><ul></ul><li class="level-4"><a href="#a-le-fixisme-">a)  le fixisme </a> <span class='tocIdInfo'>(a-le-fixisme-)</span></li><ul></ul><li class="level-4"><a href="#b-le-th-orie-de-la-mark-et-darwin">b) Le théorie de La mark et Darwin</a> <span class='tocIdInfo'>(b-le-th-orie-de-la-mark-et-darwin)</span></li><ul></ul><li class="level-4"><a href="#c-les-visionn-de-pierre-teillhiard-et-heri-bergson">c) Les visionn de Pierre Teillhiard et heri bergson</a> <span class='tocIdInfo'>(c-les-visionn-de-pierre-teillhiard-et-heri-bergson)</span></li></ul></ul></ul></ul></ul></div>
+<h1>Présentation_du_banquet de platon<a id='pr-sentation_du_banquet-de-platon'></a></h1>
 <h2>I) La tradition grec des banquets philosophiques<a id='i-la-tradition-grec-des-banquets-philosophiques'></a></h2>
 <p>Débat: choisir un théme de débat, chaquen prend la parole sur le thème choisi, (concours délocances, ) avec différantes proffessions.</p>
 <p>Démocratiedirecte, l'nesmeble des itoyrns dqui votes les loies, Démocratie directe,</p>
@@ -171,6 +193,15 @@ Teillhiard: Relieux, philo, scientifique</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

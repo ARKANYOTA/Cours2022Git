@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#chapitre-1-la-bio-diversit-et-son-volution">Chapitre 1: La bio diversité et son évolution</a> <span class='tocIdInfo'>(chapitre-1-la-bio-diversit-et-son-volution)</span></li><ul><ul></ul><li class="level-3"><a href="#i-des-outils-pour-quantifier-la-biodiversit-">I. Des outils pour quantifier la biodiversité</a> <span class='tocIdInfo'>(i-des-outils-pour-quantifier-la-biodiversit-)</span></li><ul><ul></ul><li class="level-4"><a href="#a-valuer-la-biodiversit-">A. évaluer la biodiversité</a> <span class='tocIdInfo'>(a-valuer-la-biodiversit-)</span></li><ul></ul><li class="level-4"><a href="#b-estimer-un-effectif-par-chantillionnage">B. Estimer un effectif par échantillionnage</a> <span class='tocIdInfo'>(b-estimer-un-effectif-par-chantillionnage)</span></li></ul><li class="level-3"><a href="#l-volution-g-n-tique-des-population">L'évolution génétique des population</a> <span class='tocIdInfo'>(l-volution-g-n-tique-des-population)</span></li><ul><ul></ul><li class="level-4"><a href="#a-structure-d-n-tique-d-un-population">A. Structure dénétique d'un population</a> <span class='tocIdInfo'>(a-structure-d-n-tique-d-un-population)</span></li><ul></ul><li class="level-4"><a href="#b-les-foreces-volutices">B. les foreces évolutices</a> <span class='tocIdInfo'>(b-les-foreces-volutices)</span></li><ul></ul><li class="level-4"><a href="#c-fragmentatiuon-des-habitats-et-biodiversit-">C. Fragmentatiuon des habitats et biodiversité</a> <span class='tocIdInfo'>(c-fragmentatiuon-des-habitats-et-biodiversit-)</span></li><ul></ul><li class="level-4"><a href="#d-pr-server-la-biodiversit-">D. Préserver la biodiversité</a> <span class='tocIdInfo'>(d-pr-server-la-biodiversit-)</span></li></ul></ul></ul></ul></ul>
-# Une histoire du vivant
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#une-histoire-du-vivant">Une histoire du vivant</a> <span class='tocIdInfo'>(une-histoire-du-vivant)</span></li><ul><ul></ul><li class="level-2"><a href="#chapitre-1-la-bio-diversit-et-son-volution">Chapitre 1: La bio diversité et son évolution</a> <span class='tocIdInfo'>(chapitre-1-la-bio-diversit-et-son-volution)</span></li><ul><ul></ul><li class="level-3"><a href="#i-des-outils-pour-quantifier-la-biodiversit-">I. Des outils pour quantifier la biodiversité</a> <span class='tocIdInfo'>(i-des-outils-pour-quantifier-la-biodiversit-)</span></li><ul><ul></ul><li class="level-4"><a href="#a-valuer-la-biodiversit-">A. évaluer la biodiversité</a> <span class='tocIdInfo'>(a-valuer-la-biodiversit-)</span></li><ul></ul><li class="level-4"><a href="#b-estimer-un-effectif-par-chantillionnage">B. Estimer un effectif par échantillionnage</a> <span class='tocIdInfo'>(b-estimer-un-effectif-par-chantillionnage)</span></li></ul><li class="level-3"><a href="#l-volution-g-n-tique-des-population">L'évolution génétique des population</a> <span class='tocIdInfo'>(l-volution-g-n-tique-des-population)</span></li><ul><ul></ul><li class="level-4"><a href="#a-structure-d-n-tique-d-un-population">A. Structure dénétique d'un population</a> <span class='tocIdInfo'>(a-structure-d-n-tique-d-un-population)</span></li><ul></ul><li class="level-4"><a href="#b-les-foreces-volutices">B. les foreces évolutices</a> <span class='tocIdInfo'>(b-les-foreces-volutices)</span></li><ul></ul><li class="level-4"><a href="#c-fragmentatiuon-des-habitats-et-biodiversit-">C. Fragmentatiuon des habitats et biodiversité</a> <span class='tocIdInfo'>(c-fragmentatiuon-des-habitats-et-biodiversit-)</span></li><ul></ul><li class="level-4"><a href="#d-pr-server-la-biodiversit-">D. Préserver la biodiversité</a> <span class='tocIdInfo'>(d-pr-server-la-biodiversit-)</span></li></ul></ul></ul></ul></ul></div>
+<h1>Une histoire du vivant<a id='une-histoire-du-vivant'></a></h1>
 <h2>Chapitre 1: La bio diversité et son évolution<a id='chapitre-1-la-bio-diversit-et-son-volution'></a></h2>
 <h3>I. Des outils pour quantifier la biodiversité<a id='i-des-outils-pour-quantifier-la-biodiversit-'></a></h3>
 <h4>A. évaluer la biodiversité<a id='a-valuer-la-biodiversit-'></a></h4>
@@ -244,6 +266,15 @@ Les mesuees priseent ont été l'interdiction de chasse, aménagmeent de barrage
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

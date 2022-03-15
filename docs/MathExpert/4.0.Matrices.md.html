@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,13 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#4-0-matrices-">4.0.Matrices </a> <span class='tocIdInfo'>(4-0-matrices-)</span></li><ul><ul></ul><li class="level-2"><a href="#i-introduction">I) Introduction</a> <span class='tocIdInfo'>(i-introduction)</span></li><ul></ul><li class="level-2"><a href="#ii-r-gles-de-calcul">II) Règles de calcul</a> <span class='tocIdInfo'>(ii-r-gles-de-calcul)</span></li><ul><ul></ul><li class="level-3"><a href="#1-somme-de-matrices">1) Somme de matrices</a> <span class='tocIdInfo'>(1-somme-de-matrices)</span></li><ul></ul><li class="level-3"><a href="#2-produit-de-matrices-par-un-r-el">2) Produit de matrices par un réel</a> <span class='tocIdInfo'>(2-produit-de-matrices-par-un-r-el)</span></li><ul></ul><li class="level-3"><a href="#3-produit-de-deux-matrices">3) Produit de deux matrices</a> <span class='tocIdInfo'>(3-produit-de-deux-matrices)</span></li></ul><li class="level-2"><a href="#iii-matrices-carr-es">III) Matrices carrées</a> <span class='tocIdInfo'>(iii-matrices-carr-es)</span></li></ul><li class="level-1"><a href="#vim-set-ft-tex-">vim: set ft=tex:</a> <span class='tocIdInfo'>(vim-set-ft-tex-)</span></li></ul></ul>
----
-title: 4.0.Matrices
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#4-0-matrices-">4.0.Matrices </a> <span class='tocIdInfo'>(4-0-matrices-)</span></li><ul><ul></ul><li class="level-2"><a href="#i-introduction">I) Introduction</a> <span class='tocIdInfo'>(i-introduction)</span></li><ul></ul><li class="level-2"><a href="#ii-r-gles-de-calcul">II) Règles de calcul</a> <span class='tocIdInfo'>(ii-r-gles-de-calcul)</span></li><ul><ul></ul><li class="level-3"><a href="#1-somme-de-matrices">1) Somme de matrices</a> <span class='tocIdInfo'>(1-somme-de-matrices)</span></li><ul></ul><li class="level-3"><a href="#2-produit-de-matrices-par-un-r-el">2) Produit de matrices par un réel</a> <span class='tocIdInfo'>(2-produit-de-matrices-par-un-r-el)</span></li><ul></ul><li class="level-3"><a href="#3-produit-de-deux-matrices">3) Produit de deux matrices</a> <span class='tocIdInfo'>(3-produit-de-deux-matrices)</span></li></ul><li class="level-2"><a href="#iii-matrices-carr-es">III) Matrices carrées</a> <span class='tocIdInfo'>(iii-matrices-carr-es)</span></li></ul><li class="level-1"><a href="#vim-set-ft-tex-">vim: set ft=tex:</a> <span class='tocIdInfo'>(vim-set-ft-tex-)</span></li></ul></ul></div>
+<hr />
+<h2>title: 4.0.Matrices
 created: 2021-12-06T22:10:47.890Z
-modified: 2022-01-20T13:03:34.259Z
----
+modified: 2022-01-20T13:03:34.259Z</h2>
 <h1>4.0.Matrices <a id='4-0-matrices-'></a></h1>
 <h2>I) Introduction<a id='i-introduction'></a></h2>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>3</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>1</mn><mn>3</mn></mfrac></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>5</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msqrt><mn>2</mn></msqrt></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">A = \left[\begin{array}{ccc}
@@ -294,6 +315,15 @@ Si on trouve une matrice <span class="katex"><span class="katex-mathml"><math xm
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

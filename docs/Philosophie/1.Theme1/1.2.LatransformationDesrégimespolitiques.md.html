@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-autoritarisme-et-totalitarisme-selon-les-analyses-d-hannah-arendt-1906---1975-">I) Autoritarisme et Totalitarisme selon les analyses d'Hannah Arendt(1906 -> 1975)</a> <span class='tocIdInfo'>(i-autoritarisme-et-totalitarisme-selon-les-analyses-d-hannah-arendt-1906---1975-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-pr-sentation-d-hannah-aredt-et-etude-d-un-texte-extrait-de-son-ouvrage-les-origine-du-totalitarisme-1951-">1) Présentation d'Hannah aredt et etude d'un texte extrait de son ouvrage "les origine du totalitarisme"(1951)</a> <span class='tocIdInfo'>(1-pr-sentation-d-hannah-aredt-et-etude-d-un-texte-extrait-de-son-ouvrage-les-origine-du-totalitarisme-1951-)</span></li></ul></ul></ul></ul>
-# LatransformationDesrégimespolitiques les basculements autoritaires et totalitaires
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#latransformationdesr-gimespolitiques-les-basculements-autoritaires-et-totalitaires">LatransformationDesrégimespolitiques les basculements autoritaires et totalitaires</a> <span class='tocIdInfo'>(latransformationdesr-gimespolitiques-les-basculements-autoritaires-et-totalitaires)</span></li><ul><ul></ul><li class="level-2"><a href="#i-autoritarisme-et-totalitarisme-selon-les-analyses-d-hannah-arendt-1906---1975-">I) Autoritarisme et Totalitarisme selon les analyses d'Hannah Arendt(1906 -> 1975)</a> <span class='tocIdInfo'>(i-autoritarisme-et-totalitarisme-selon-les-analyses-d-hannah-arendt-1906---1975-)</span></li><ul><ul></ul><li class="level-3"><a href="#1-pr-sentation-d-hannah-aredt-et-etude-d-un-texte-extrait-de-son-ouvrage-les-origine-du-totalitarisme-1951-">1) Présentation d'Hannah aredt et etude d'un texte extrait de son ouvrage "les origine du totalitarisme"(1951)</a> <span class='tocIdInfo'>(1-pr-sentation-d-hannah-aredt-et-etude-d-un-texte-extrait-de-son-ouvrage-les-origine-du-totalitarisme-1951-)</span></li></ul></ul></ul></ul></div>
+<h1>LatransformationDesrégimespolitiques les basculements autoritaires et totalitaires<a id='latransformationdesr-gimespolitiques-les-basculements-autoritaires-et-totalitaires'></a></h1>
 <p>Differance des régimes totalitaire et autoritaire</p>
 <p>Totalitarisem:</p>
 <ul>
@@ -145,6 +167,15 @@ parraleliseme: totalistarisme nazi et tatalitarisme russe</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

@@ -17,13 +17,16 @@
                 <script src="../.././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,9 +122,10 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul><ul></ul><li class="level-2"><a href="#i-l-homme-une-primate-parmis-les-primates">I) L"homme, une primate parmis les Primates</a> <span class='tocIdInfo'>(i-l-homme-une-primate-parmis-les-primates)</span></li></ul></ul></ul>
-# L"évolution Humaine
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#l-volution-humaine">L"évolution Humaine</a> <span class='tocIdInfo'>(l-volution-humaine)</span></li><ul><ul></ul><li class="level-2"><a href="#i-l-homme-une-primate-parmis-les-primates">I) L"homme, une primate parmis les Primates</a> <span class='tocIdInfo'>(i-l-homme-une-primate-parmis-les-primates)</span></li></ul></ul></ul></div>
+<h1>L&quot;évolution Humaine<a id='l-volution-humaine'></a></h1>
 <h2>I) L&quot;homme, une primate parmis les Primates<a id='i-l-homme-une-primate-parmis-les-primates'></a></h2>
 <p>Probleme posé: comment établir des liens de parenté entre les Primates de quelle est l'espece actuelle la plus proche de l'Homme?</p>
 <p>Activité 1: répondre aux question 1 p233</p>
@@ -121,6 +143,15 @@ Toupai     | griffe    |non- opposable | coccyx</p>
 L'espece humaine actuelle Homo sapiens fait partie du groupe des primates et est plus particuliererment apparentée aux grands singes avec lesquels elle partages des caractesses morpho-anatomiqes et des silitutes génétiques.
 C'est avec le chimpanzé qu'elle pârtage le plus récvent ancetre commun.</p>
 <p>Bilan 1p238</p>
+<p>Stromatholite        | A partir de 3.5 Ga | +  | //
+Poudingues           | De 4 a 2.2 Ga
+Pouding avec pyrytes | gles    |opposable      | queus
+Gorille    | ongles    |opposable      | queus
+Orangotang | ongles    |opposable      | queus
+MAcaque    | ongles    |opposable      | coccyx
+Tarsier    | ongles    |opposable      | coccyx
+Maki       | ongles    |opposable      | coccyx<br />
+Toupai     | griffe    |non- opposable | coccyx</p>
 
                 </article>
                 <script>
@@ -148,6 +179,15 @@ C'est avec le chimpanzé qu'elle pârtage le plus récvent ancetre commun.</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>

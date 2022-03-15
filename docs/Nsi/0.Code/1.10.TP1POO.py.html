@@ -1,0 +1,340 @@
+<!doctype html>
+        <html lang="fr">
+        <head>
+            <meta charset="utf-8">
+            
+            <link rel="stylesheet" href="../.././exports/css/primer.css">
+            <link rel="stylesheet" href="../.././exports/css/highlightjs.css"> <!--// onload="hljs.highlightAll()">-->
+            <link rel="stylesheet" href="../.././exports/css/global.css">
+            <script src="../.././exports/js/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+            <script>
+                function changetheme(theme){
+                    if(theme.substring(0,4) === 'dark'){
+                        document.documentElement.setAttribute("data-color-mode", "dark");
+                        document.documentElement.setAttribute("data-dark-theme", theme);
+                    } else {
+                        document.documentElement.setAttribute("data-color-mode", "light");
+                        document.documentElement.setAttribute("data-light-theme", theme);
+                    }
+                    document.cookie = "theme="+theme+"; path=/";
+                }
+                function load_cookie(){
+                    document.cookie.split(';').forEach(function(c) {
+                        var m = c.trim().match(/theme=(.*)/);
+                        if(m) {
+                            changetheme(m[1]);
+                        }else{
+                            changetheme('dark')
+                        }
+                    });
+               }
+                load_cookie();
+                document.onkeyup = function(e) {
+                  if (e.key === "m") {
+                      changetheme("dark");
+                  }
+                };
+            </script>
+        </head>
+        <body>
+        
+            <a href="../index.html">BACK</a>
+            
+            <div class="themechose unselectable">
+                <a onclick="changetheme('light')" class="theme-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+                              fill="currentColor"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M11 0H13V4.06189C12.6724 4.02104 12.3387 4 12 4C11.6613 4 11.3276 4.02104 11 4.06189V0ZM7.0943 5.68018L4.22173 2.80761L2.80752 4.22183L5.6801 7.09441C6.09071 6.56618 6.56608 6.0908 7.0943 5.68018ZM4.06189 11H0V13H4.06189C4.02104 12.6724 4 12.3387 4 12C4 11.6613 4.02104 11.3276 4.06189 11ZM5.6801 16.9056L2.80751 19.7782L4.22173 21.1924L7.0943 18.3198C6.56608 17.9092 6.09071 17.4338 5.6801 16.9056ZM11 19.9381V24H13V19.9381C12.6724 19.979 12.3387 20 12 20C11.6613 20 11.3276 19.979 11 19.9381ZM16.9056 18.3199L19.7781 21.1924L21.1923 19.7782L18.3198 16.9057C17.9092 17.4339 17.4338 17.9093 16.9056 18.3199ZM19.9381 13H24V11H19.9381C19.979 11.3276 20 11.6613 20 12C20 12.3387 19.979 12.6724 19.9381 13ZM18.3198 7.0943L21.1923 4.22183L19.7781 2.80762L16.9056 5.6801C17.4338 6.09071 17.9092 6.56608 18.3198 7.0943Z"
+                              fill="currentColor"/>
+                    </svg>
+                </a>
+                <a onclick="changetheme('dark_dimmed')" class="theme-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+                              fill="currentColor"/>
+                    </svg>
+                </a>
+                <a onclick="changetheme('dark')" class="theme-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12.2256 2.00253C9.59172 1.94346 6.93894 2.9189 4.92893 4.92891C1.02369 8.83415 1.02369 15.1658 4.92893 19.071C8.83418 22.9763 15.1658 22.9763 19.0711 19.071C21.0811 17.061 22.0565 14.4082 21.9975 11.7743C21.9796 10.9772 21.8669 10.1818 21.6595 9.40643C21.0933 9.9488 20.5078 10.4276 19.9163 10.8425C18.5649 11.7906 17.1826 12.4053 15.9301 12.6837C14.0241 13.1072 12.7156 12.7156 12 12C11.2844 11.2844 10.8928 9.97588 11.3163 8.0699C11.5947 6.81738 12.2094 5.43511 13.1575 4.08368C13.5724 3.49221 14.0512 2.90664 14.5935 2.34046C13.8182 2.13305 13.0228 2.02041 12.2256 2.00253ZM17.6569 17.6568C18.9081 16.4056 19.6582 14.8431 19.9072 13.2186C16.3611 15.2643 12.638 15.4664 10.5858 13.4142C8.53361 11.362 8.73568 7.63895 10.7814 4.09281C9.1569 4.34184 7.59434 5.09193 6.34315 6.34313C3.21895 9.46732 3.21895 14.5326 6.34315 17.6568C9.46734 20.781 14.5327 20.781 17.6569 17.6568Z"
+                              fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+            
+            </br></br><pre><code class="python">import turtle
+import random
+
+
+### Exo1: VOcabulaire et syntaxe
+# class Individu:
+#     def __init__(self, nom, prenom, annee_naissance):
+#         self.nom = nom
+#         self.prenom = prenom
+#         self.annee_naissance = annee_naissance
+#     def calculAge(self,annee):
+#         return annee - self.annee_naissance
+#     def estMajeur(self, annee):
+#         return self.calculAge(annee) >= 18
+# 
+# # 1) C'est un consgtructeur
+# 
+# # 2) Les méthodes = (__ini__, calculAge), et les attributs = (nom, prenom, annee_naissance)
+# 
+# # 3) Elle renvoie l'age de la personne a un certain temps a partir de l'linput de la function, elle renvoie un nombre(int si on met un int, un float si on met un float pour annee)
+# 
+# # 4) self représente est fait pour appeleer les attributs du constructeur.
+# 
+# me = Individu("CARLISI", "Nolan", 2004)
+# print(me.estMajeur(2020))
+
+
+# ### Exo2: Stylo
+# 
+# """
+# Définissez la classe Stylo
+# 2. Implémentez le constructeur avec deux attributs :
+# - liste_couleurs qui représente la liste des couleurs dont dispose le stylo
+# - couleur_actuelle qui représente la couleur choisie.
+# Lorsque l’on instancie un stylo, il n’est pas nécessaire d’avoir choisi une
+# couleur_actuelle. On peut donc fixer sa valeur à “None” dans le constructeur.
+# 3. Implémentez la méthode choisirCouleur(self, couleur) qui va vérifier si la couleur
+# choisie est bien dans la liste des couleurs disponibles. Si oui, la couleur actuelle du
+# stylo va devenir cette couleur. Si non, un message sera affiché : “Couleur non
+# disponible”
+# 4. Implémentez la méthode fermerStylo(self) qui permet de rentrer la mine du stylo
+# et donc de réinitialiser sa couleur actuelle.
+# 5. Testez vos méthodes en créant une instance de Stylo.
+# """
+# 
+# 
+# class Stylo:
+#     def __init__(self, liste_couleur, couleur_actuelle):
+# 	self.liste_couleur = liste_couleur
+# 	self.couleur_actuelle = couleur_actuelle
+#     def choisirCouleur(self, couleur):
+#     	if couleur in self.liste_couleur:
+# 	    self.couleur_actuelle = couleur
+# 	else:
+# 	    print("Couleur non disponible")
+#     def fermerStylo(self):
+#     	self.couleur_actuelle = None
+# 
+# stylo1 = Stylo(["rouge", "bleu", "vert"], "bleu")
+
+# ### Exo3: Rectangle
+# 
+# """
+# Un rectangle est défini par une longueur et une largeur.
+# 1. Définissez la classe Rectangle
+# 2. Implémentez le constructeur de la classe Rectangle
+# 3. Modifiez le constructeur en ajoutant une condition pour faire en sorte que la
+# longueur soit toujours supérieure à la largeur.
+# 4. Implémentez la méthode périmetre(self) qui permet de calculer le périmètre d’un
+# rectangle.
+# Rappel : Le périmètre d’un rectangle est la somme de tous ses côtés.
+# 5. Implémentez la méthode aire(self) qui permet de calculer l’aire d’un rectangle.
+# Rappel : L’aire d’un rectangle est égale à la longueur * la largeur
+# 6. Implémentez la méthode estCarre(self) qui renvoie True si le rectangle est un
+# carré et False sinon.
+# 7. Testez vos méthodes en créant une instance de Rectangle
+# 8. Implémentez une nouvelle méthode traceRectangle(self) qui va tracer le
+# rectangle grâce à turtle.
+# """
+# 
+# class Rectangle:
+# 	def __init__(self, longueur, largeur):
+# 		self.longueur = longueur
+# 		self.largeur = largeur
+# 	def perimetre(self):
+# 		return 2 * (self.longueur + self.largeur)
+# 	def aire(self):
+# 		return self.longueur * self.largeur
+# 	def estCarre(self):
+# 		return self.longueur == self.largeur
+# 	def traceRectangle(self):
+# 		turtle.forward(self.longueur)
+# 		turtle.left(90)
+# 		turtle.forward(self.largeur)
+# 		turtle.left(90)
+# 		turtle.forward(self.longueur)
+# 		turtle.left(90)
+# 		turtle.forward(self.largeur)
+# 		turtle.left(90)
+# 
+# rectangle1 = Rectangle(10, 5)
+# print(rectangle1.traceRectangle())
+# 
+# ### Exo4: Carte
+# 
+# """
+# Dans cet exercice vous allez implémenter une carte de jeu.
+# 1. Définissez la classe Carte
+# 2. Implémentez le constructeur (deux seul attribut : la valeur allant de 1 à 13 de la
+# carte et sa couleur (Trèfle Carreau Coeur ou Pique)
+# 3. Implémentez une méthode estFigure(self) qui indique si la carte est une figure
+# ou non. Elle affichera la figure de la carte si c’est une figure et affichera “La carte
+# n’est pas une figure” sinon.
+# Une figure est un Valet une Dame ou un Roi (de valeur 11, 12 ou 13)
+# 4. Implémentez une méthode afficheCarte(self) qui affiche la carte proprement.
+# Exemple :
+# >> c = Carte(12, ”Coeur”)
+# >> c.afficheCarte()
+# Dame de Coeur
+# >> c = Carte(3, ”Pique”)
+# >> c.afficheCarte()
+# 3 de Pique
+# 5. Implémentez une méthode plusGrande(self,carte) qui prend en paramètre une
+# carte et qui renvoie la carte de plus haute valeur.
+# """
+
+class Carte:
+	def __init__(self, valeur, couleur):
+		self.valeur = valeur
+		self.couleur = couleur
+	def estFigure(self):
+		if self.valeur == 11 or self.valeur == 12 or self.valeur == 13:
+			return True
+		else:
+			return False
+	def afficheCarte(self):
+		if self.valeur == 11:
+			print("Valet de " + self.couleur)
+		elif self.valeur == 12:
+			print("Dame de " + self.couleur)
+		elif self.valeur == 13:
+			print("Roi de " + self.couleur)
+		else:
+			print(self.valeur, "de", self.couleur)
+	def plusGrande(self, carte):
+		if self.valeur > carte.valeur:
+			return self
+		else:
+			return carte
+	
+
+### Exo5: Jeu de cartes
+
+
+"""
+Dans cet exercice vous allez implémenter un jeu de cartes.
+1. Définissez la classe JeuDeCartes
+2. Implémentez une méthode creerPaquet(self) qui va créer un paquet de cartes.
+Commencez par définir un tableau vide “paquet” qui contiendra les cartes. Pour
+chaque couleur, et pour chaque valeur, la méthode va créer une nouvelle carte et
+l’ajouter à “paquet”.
+La méthode renverra à la fin “paquet”
+3. Implémentez le constructeur de la classe. Il n’y aura qu’un seul attribut “paquet”
+qui ne sera pas donné en paramètre mais initialisé dans la constructeur grâce à la
+méthode creerPaquet(self).
+4. Implémentez une méthode melange(self) qui va mélanger aléatoirement le
+paquet. Aidez vous de la méthode shuffle() de la bibliothèque random.
+5. Implémentez une méthode afficheJeu(self) qui affiche proprement chaque carte
+du jeu.
+6. Testez vos méthodes en créant un nouveau paquet de carte, en le mélangeant et
+en l’affichant."""
+
+class JeuDeCartes:
+	def __init__(self):
+		self.paquet = []
+	def creerPaquet(self):
+		for couleur in ["Coeur", "Carreau", "Pique", "Trèfle"]:
+			for valeur in range(1, 14):
+				self.paquet.append(Carte(valeur, couleur))
+		return self.paquet
+	def melange(self):
+		random.shuffle(self.paquet)
+	def afficheJeu(self):
+		for carte in self.paquet:
+			carte.afficheCarte()
+
+
+paquet = JeuDeCartes()
+paquet.creerPaquet()
+paquet.melange()
+paquet.afficheJeu()
+
+### Exo5: Dominos
+
+class domino:
+    def __init__(self, d, g):
+        self.d = d
+        self.g = g
+    def pts(self):
+        return self.d + self.g
+    def blanc(self):
+        return not bool(self.g*self.g)
+    def double(self):
+        
+
+
+
+def JeudeDominos:
+    def distribuer():
+	
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+
+            <footer id="end"></footerid>
+        </body>
+    </html>

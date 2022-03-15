@@ -17,13 +17,16 @@
                 <script src=".././exports/js/highlight.min.js"></script>
             
                 <script>
-                    function changetheme(theme){
+                    function changetheme(theme, nochangecookie){
                         if(theme.substring(0,4) === 'dark'){
                             document.documentElement.setAttribute("data-color-mode", "dark");
                             document.documentElement.setAttribute("data-dark-theme", theme);
                         } else {
                             document.documentElement.setAttribute("data-color-mode", "light");
                             document.documentElement.setAttribute("data-light-theme", theme);
+                        }
+                        if(nochangecookie){
+                            return;
                         }
                         document.cookie = "theme="+theme+"; path=/";
                         // hljs.highlightAll();
@@ -41,8 +44,26 @@
                    }
                     load_cookie();
                     document.onkeyup = function(e) {
-                      if (e.key === "m") {
+                      if (e.key === "d") {
                           changetheme("dark");
+                      }
+                      if (e.key === "l") {
+                          changetheme("light");
+                      }
+                      if (e.key === "D") {
+                          changetheme("dark_dimmed");
+                      }
+                      if(e.key === "p"){
+                          if(document.getElementById("header").style.display === "none"){
+                              document.getElementById("header").style.display = "block";
+                              document.getElementById("TocItem").style.display = "block";
+                              load_cookie()
+                          }else{
+                              document.getElementById("header").style.display = "none";
+                              document.getElementById("TocItem").style.display = "none";
+                              changetheme("light", true);
+                          }
+                          
                       }
                     };
                     
@@ -54,10 +75,10 @@
                             window.location.href="#"+currLocation;
                         }, 1000);
                     }
-
                 </script>
             </head>
             <body>
+            <header id="header">
                 <a href="index.html">BACK</a>
                 
                 <div class="themechose unselectable">
@@ -101,13 +122,13 @@
                         </a>
                     </p>
                 </div>
+                </header>
                 <article class="markdown-body">
-                    <ul><ul><ul></ul><li class="level-1"><a href="#d-riv-es-_connexit-">Dérivées\_Connexité</a> <span class='tocIdInfo'>(d-riv-es-_connexit-)</span></li><ul><ul></ul><li class="level-2"><a href="#i-compos-de-2-fonctions">I) Composé de 2 fonctions</a> <span class='tocIdInfo'>(i-compos-de-2-fonctions)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#2-d-finition-et-notation">2) Définition et Notation</a> <span class='tocIdInfo'>(2-d-finition-et-notation)</span></li><ul></ul><li class="level-4"><a href="#3-dans-la-pratique">3) Dans la pratique</a> <span class='tocIdInfo'>(3-dans-la-pratique)</span></li><ul></ul><li class="level-4"><a href="#4-d-riv-e-d-une-compos-e">4) Dérivée d'une composée</a> <span class='tocIdInfo'>(4-d-riv-e-d-une-compos-e)</span></li><ul><ul></ul><li class="level-5"><a href="#a-th-or-me-">a) Théorème:</a> <span class='tocIdInfo'>(a-th-or-me-)</span></li></ul><li class="level-4"><a href="#5-cas-particulier-du-th-or-me-pr-c-dant">5) CAS PARTICULIER, Du théorème précédant</a> <span class='tocIdInfo'>(5-cas-particulier-du-th-or-me-pr-c-dant)</span></li></ul><li class="level-3"><a href="#-paragraphe-2-d-riv-es-successives">**Paragraphe 2:** Dérivées successives</a> <span class='tocIdInfo'>(-paragraphe-2-d-riv-es-successives)</span></li><ul><ul></ul><li class="level-4"><a href="#1-d-riv-es-seconde-">1) Dérivées seconde:</a> <span class='tocIdInfo'>(1-d-riv-es-seconde-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finition-">a) Définition:</a> <span class='tocIdInfo'>(a-d-finition-)</span></li><ul></ul><li class="level-5"><a href="#b-propri-t-">b) Propriété:</a> <span class='tocIdInfo'>(b-propri-t-)</span></li></ul><li class="level-4"><a href="#2-d-riv-es-successives-d-une-fonction-">2) Dérivées successives d'une fonction.</a> <span class='tocIdInfo'>(2-d-riv-es-successives-d-une-fonction-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finition--">a) définition:</a> <span class='tocIdInfo'>(a-d-finition--)</span></li><ul></ul><li class="level-5"><a href="#b-exemples-">b) exemples:</a> <span class='tocIdInfo'>(b-exemples-)</span></li></ul></ul><li class="level-3"><a href="#iii-fonctions-convexes---concaves">III) Fonctions  convexes - Concaves</a> <span class='tocIdInfo'>(iii-fonctions-convexes---concaves)</span></li><ul><ul></ul><li class="level-4"><a href="#1-d-finitions-">1) définitions:</a> <span class='tocIdInfo'>(1-d-finitions-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finitions-1-">a) définitions 1:</a> <span class='tocIdInfo'>(a-d-finitions-1-)</span></li></ul></ul></ul></ul></ul></ul>
----
-title: 2.0.Derivees
+                    <div id='TocItem'><ul><ul><ul></ul><li class="level-1"><a href="#d-riv-es-_connexit-">Dérivées\_Connexité</a> <span class='tocIdInfo'>(d-riv-es-_connexit-)</span></li><ul><ul></ul><li class="level-2"><a href="#i-compos-de-2-fonctions">I) Composé de 2 fonctions</a> <span class='tocIdInfo'>(i-compos-de-2-fonctions)</span></li><ul><ul><ul></ul><li class="level-4"><a href="#2-d-finition-et-notation">2) Définition et Notation</a> <span class='tocIdInfo'>(2-d-finition-et-notation)</span></li><ul></ul><li class="level-4"><a href="#3-dans-la-pratique">3) Dans la pratique</a> <span class='tocIdInfo'>(3-dans-la-pratique)</span></li><ul></ul><li class="level-4"><a href="#4-d-riv-e-d-une-compos-e">4) Dérivée d'une composée</a> <span class='tocIdInfo'>(4-d-riv-e-d-une-compos-e)</span></li><ul><ul></ul><li class="level-5"><a href="#a-th-or-me-">a) Théorème:</a> <span class='tocIdInfo'>(a-th-or-me-)</span></li></ul><li class="level-4"><a href="#5-cas-particulier-du-th-or-me-pr-c-dant">5) CAS PARTICULIER, Du théorème précédant</a> <span class='tocIdInfo'>(5-cas-particulier-du-th-or-me-pr-c-dant)</span></li></ul><li class="level-3"><a href="#-paragraphe-2-d-riv-es-successives">**Paragraphe 2:** Dérivées successives</a> <span class='tocIdInfo'>(-paragraphe-2-d-riv-es-successives)</span></li><ul><ul></ul><li class="level-4"><a href="#1-d-riv-es-seconde-">1) Dérivées seconde:</a> <span class='tocIdInfo'>(1-d-riv-es-seconde-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finition-">a) Définition:</a> <span class='tocIdInfo'>(a-d-finition-)</span></li><ul></ul><li class="level-5"><a href="#b-propri-t-">b) Propriété:</a> <span class='tocIdInfo'>(b-propri-t-)</span></li></ul><li class="level-4"><a href="#2-d-riv-es-successives-d-une-fonction-">2) Dérivées successives d'une fonction.</a> <span class='tocIdInfo'>(2-d-riv-es-successives-d-une-fonction-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finition--">a) définition:</a> <span class='tocIdInfo'>(a-d-finition--)</span></li><ul></ul><li class="level-5"><a href="#b-exemples-">b) exemples:</a> <span class='tocIdInfo'>(b-exemples-)</span></li></ul></ul><li class="level-3"><a href="#iii-fonctions-convexes---concaves">III) Fonctions  convexes - Concaves</a> <span class='tocIdInfo'>(iii-fonctions-convexes---concaves)</span></li><ul><ul></ul><li class="level-4"><a href="#1-d-finitions-">1) définitions:</a> <span class='tocIdInfo'>(1-d-finitions-)</span></li><ul><ul></ul><li class="level-5"><a href="#a-d-finitions-1-">a) définitions 1:</a> <span class='tocIdInfo'>(a-d-finitions-1-)</span></li></ul></ul></ul></ul></ul></ul></div>
+<hr />
+<h2>title: 2.0.Derivees
 created: 2021-12-15T16:03:46.973Z
-modified: 2021-12-15T16:03:46.973Z
----
+modified: 2021-12-15T16:03:46.973Z</h2>
 <h1>Dérivées_Connexité<a id='d-riv-es-_connexit-'></a></h1>
 <p>Propriete: 2droites ont parralleles lorque que leur coefficient directeur sont egaux(que elle ont la meme pente)</p>
 <h2>I) Composé de 2 fonctions<a id='i-compos-de-2-fonctions'></a></h2>
@@ -803,6 +824,15 @@ C es tla courbe representative de f'</p>
                         document.getElementById("numberTocLevel").innerHTML = currentTocLevel
                     }
                    addTocLevel(true);
+                    function getQuery(q) {
+                       return (window.location.search.match(new RegExp('[?&]' + q + '=([^&]+)')) || [, null])[1];
+                    }
+                    console.log(getQuery("isprintermode"));
+                    if(getQuery("isprintermode") === "true"){
+                          document.getElementById("header").style.display = "none";
+                          document.getElementById("TocItem").style.display = "none";
+                          changetheme("light", true);
+                    }
                 </script>
             </body>
             <footer id="end"></footerid>
