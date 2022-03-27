@@ -91,3 +91,8 @@ blockquote>blockquote{
     color: var(--color-auto-green-6);
 }
 
+
+dl{display:table;}
+dt{display:table-cell;}
+dd{margin-left:0.5ch;}
+
