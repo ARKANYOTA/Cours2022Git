@@ -295,3 +295,17 @@ Puis &f& est solution de &(E)&
 
 
 
+
+Utiliser 2 language differant pour traduire que F est une primitive de f sut I
+
+Ex: &y' + 4y = xe^(-x) (E)& Sur &I=RR&
+
+&y' = -4y + xe^(-x)& 
+
+Cf methode:
+(1); Solution particuliere de (E) -> &u& sous la forme u(x) = (ax + b) e^(-x) a et b a determiner
+(2): On résoult:(E_0): y'=4y Théormee
+(3): f est solutuon de (E) SSI (f-u) est solution de (E_0)
+
+
+

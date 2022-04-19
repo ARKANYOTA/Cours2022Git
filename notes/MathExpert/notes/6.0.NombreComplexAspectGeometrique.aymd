@@ -416,4 +416,29 @@ Par diffence membre à membre:
 
 >> &sin theta = (e^(itheta) - e^(-theta))/(2i)&
 
+## IX) Racines &n^(iemes)& de l'unité
+
+Soit &P_n& le polynôme défini par &P_n(X) = X^n - 1& &(n in NN^**)&
+
+Les <u>racines n^ièmes^ de l'unité</u> &d^°(P_n) = n&, donc il y aa au plus &n& racines n^ieme^ de l'unité
+
+Posons &omega_k = e^(i2pi/n k); k in [[0; n-1]]&
+
+On a &omega_k^n = (e^(i2pi/n k))^n&
+&= e^(i2pi/n k)&
+&= e^(i2pi/n)^k&
+&= 1^k&
+&= 1&
+
+Donc &omega_k& est une racine n^ieme de l'unité
+
+Ils sont tous distincts deux à deux
+
+>> Il y' a exactement &n& racines n^ieme^ de l'unité. Elles sont toutes de module &1&. Leurs points images constituent un polygone régulier.
+
+Exemple:
+les racines deuxième de &1& sont &1& et &-1&.
+les racines quatrième de &1& sont &1, -1, i& et &-i&.
+
+
 

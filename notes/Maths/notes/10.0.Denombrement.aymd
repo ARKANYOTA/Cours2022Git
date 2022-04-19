@@ -1,0 +1,206 @@
+# Combinatoire et démonbrememnt
+
+## I) Cardinal d'un ensemble: produit cartésien
+
+### 1) Définition:
+
+&E& est un emsemble fini, càd, qui a un nombre fini d'elts 
+
+On appelle <u>Cardinal de &E&</u>, et on note &Card(E)& le nb d'elts de &E&
+
+exemple: &E = \{0;2;4;6;8;10\}&: &E& contient 6 elts donc &Card(E) = 6&
+
+&\{2\} subset E&
+&2 in E&
+
+ensemble: consitié d'elts de &E&
+
+&\{2,4\} -> \(2,4\)& Couple d'elts de E
+&\{4,2\} -> \(4,2\)& Couple d'elts de E
+
+Cas particulier: &o/& elts qui ne contioent pas d'elts 
+&Card(o/) = 0&
+
+
+#### Propriété: principe additif
+
+2 ensembles &A& et &B& sont <u>disjoints</u> lorsque <u>&A cap B = o/&</u>
+
+Soient &A_1,A_2,A_3,...,A_n& &n& ensembles, <u>2 à 2 disjoint</u> se traduit <u>par</u>: &forall i in \{1;2;...;n\}& et &forall j in \{1;2;...;n\}&  
+&forall i in [[1;n]]& et &forall j in [[1;n\]]&  tels que &i!=j&& : &A_i cap A_j = o/&
+
+ON A ALORS: &Card(A_1 cup A_2 cup dots cup A_n) = Card(A_1) + Card(A_2) + dots + Card(A_n)& 
+
+Indication de Preuve: raisonnement par récurrence
+
+Notation:
+
+&Card(A_1) + Card(A_2) + ... cup Card(A_n) = \Sum^(n)_(k=1) Card(A_k)&
+&Card(A_1) cup Card(A_2) cup ...  cup Card(A_n) = \Cup^(n)_(i=1) Card(A_i)&
+
+le principe additif s'écrit: &Card(\Cup^n_(i=1)A_i) = \Sum^(n)_(k=1) Card(A_k)&
+
+> LATEX INFO: \Cup = UU, Source Léo
+
+### c) Propriété: &A& et &B& sont 2 ensembles
+
+&Card(A cup b) = Card(A) + Card(b) - Card(A cap B)
+
+[1...]
+
+&A cap B&  désigne l'enseble des éléments communs à A et B
+Dans: &Card(A) + Card(B)& on compte 2 fois le nombre d'eletsment communs à A et B:
+Dans: &Card(A) + Card(B) - Card(A cap B) = Card(A cup B)&
+
+### 3) Produit Cartésien: Principe multiplicatif
+
+
+&\{a;b\} = Ensemble = \{b;a\}&
+&\(a;b\) = Couple   != \(b;a\)&
+
+&E& et &F& sont 2 ensembles non vide
+
+Le produit cartésien de &E& par &F& se note: &E times F& et est défini par &E times F&
+
+>> &E times F = \{(x; y), x in E " et " y in F\}F&
+
+Exemple: &E=\{1;2\}& et &F=\{a;b;c\}& 
+indiquez tous les élements du produit carésien &E times F& 
+
+&E times F = \{(1;a);(1;b);(1;c);(2;a);(2;b);(2;c)\}&
+
+On observe que &Card(E times F) = 6 = 2 times 3 = Card(E) times Card(F)&
+
+k-nuplet d'élement de &E&: liste de &k& elements de &E& : Une suite de &k& termes.
+
+#### c) Propriété: Soit &E& un ensemble fini et &n in NN^**& ** 
+
+>> &Card(E^n) = (Card(E))^n&
+
+Preuve: cf fiche
+
+### 5) Application: exemple concret N°1:
+
+digicode. Ce code est constitué de 4 ou 5 chiffres choisi parmi &[[0; 9]]& suivi d'une lettre choisi parmi les lettres &[A-C]&
+
+>> On applqiue le principe multiplicatiof suivant: lorsqu'une situation comporte k etapes, indépendantes ou pas offrant respectivement &n_1, n_1, dots, n_k& possibilités ou chaque nombre &n_i& ne dépend que de l'étape &i&, alors le nombre d'issues est &n_1 times n_2 times dots times n_k&
+
+Ainsi s le cas dun digicode qui comporte &4& chiffres suivis d'une lettre.
+
+Au total il y'a 5 étapes: &k=5&
+Pour le 1^er^ chiffre il y a 10 possibilités;; 	 	
+Pour le 2^er^ chiffre il y a 10 possibilités;; 	 	
+Pour le 3^er^ chiffre il y a 10 possibilités;; 	 	
+Pour le 4^er^ chiffre il y a 3 possibilités;; 	 	
+
+Selon le principe multiplicatif le nombre de digicode est: &10 times 10 times 10 times 10 times 3 = 30000&
+
+Remarque si on suppose dans le choix  du digicode il sont 2 à 2 distint.
+
+Remarque: chiffre du digicode 2 à 2 disctinct
+
+Pour A1, &19*9*8*7*3 = 15120&
+Pour A1, &19*9*8*7*6*3 = 90720&
+
+Nombre de digicode: &105840&
+
+## Paragraphe 2: Arrengement et permutaiton
+### A) Arrengement:
+##### a) Définition:
+Soit &E& Un ensemble qui contient &n& élements. et &p in NN^**&, tel que &p <= n&
+
+
+Un p-uplet d'elements de &E& dont les elements sont 2 à 2 dictints
+
+On peut dire aussi une suite de &p& elements de &E& 2 à 2 disctints ou bien une liste de &p& elements de &E& 
+
+Exemple &E = \{A,B,C\}&
+
+Determiner tout les arrangement de &E&
+
+On peut le compprendre sans l'eneumerer c'est l'arengement de &E&
+Une element de &E& Il y'a 3 choix ou posibilité pour le 1er elts puis 2 choix or pos for second elts. Selon le principe multiplicatif :
+
+&3 * 2 = 6& ... 
+
+##### b) Propriété le nombre d'arrengement de P elts d'un ensemble qui en contient n: &n*(n-1)*(n-2)*dots*(n-p+1)&
+
+Preuve:
+
+> On a une situation de &p& etapes:
+> &n& posibilité pour le premier terme du calcul
+> puis &n-1& .........................
+> puis &n-2& .........................
+> puis &n-3& .........................
+> puis &n-4& .........................
+> .
+> .
+> .
+> puis n-(p-1) .........................
+
+
+#### 2) COmpbinaison:
+
+##### a) Défintion:
+
+Soit E un ensemble fini qi contient n elements &n in NN&
+
+Soit &p in NN& tel que &0 <= p <= n&
+
+Une combinaison de <u>p éléments de</u> E est une partie un sous ensemle de E qui contient p éléments.
+
+ex: &E = \{a_1, a_2, a_3\}&
+
+Le nombre de combinaison de &p& élements de E est (n parmi p)
+
+Exemples: ...
+
+##### b) dénombrement des combinaison
+
+>> Propriété 1: &p in N& et &n in NN& tels que &0 <= p <= n&
+>> On a: 
+>> &(n parmi n) = (n!)/((n-p)!p!)&
+
+Preuve:
+
+On utilise le nombre de <u>p</u> arrengements d'un ensemble à n éléments.
+On sait que ce nombre est:
+&n(n-1)(n-2)....(n-p+1)&
+
+On note &E = \{a_1, a_2, ..., a_n\}&
+
+Soit une partie a &p& élements de &E& par exemple &\{a_1, a_2, a_3, ..., a_p\}&
+
+On sait qu'un arrengement de p éléments d'un ensemble qui en contient &p&, est une permutaion de &p& élements.
+
+Par propriéré il y en a &p!&
+
+>> Ainsi il y a &p!& fois plus d'arrengements de p éléments de E de combinaison de &p& éléments de &E&
+
+>> Propriété 2: Soit &k in NN& et &p in NN& tels que &0 <= k <= n&
+>> On a &(k parmi n) = (n-k parmi n)&
+
+Preuve: ...
+
+Interprétation: 
+Il y'a autant de parties a &k& elements d'un ensemble E à &n& elments que  .......
+
+>> Propriété 3: Soit &p in NN& et &n in NN& tels que &1 <= p <= n-1&
+>> On a &(p parmi n) = (p parmi n-1) + (p-1 parmi n-1)&
+
+Preuve ...
+
+Le choix du dénombinateur commun est: &(n-p)! times p!&
+
+Tiangle de Pascal
+
+n | 0 1 2  3  4 5 6 7
+0 | 1
+1 | 1 1
+2 | 1 2 1
+3 | 1 3 3  1
+4 | 1 4 6  4  1
+5 | 1 5 10 10 5 1
+
+
+<!--vim: fdm=marker:-->

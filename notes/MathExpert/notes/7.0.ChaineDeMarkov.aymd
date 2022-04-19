@@ -1,0 +1,28 @@
+# ChaineDeMarkov
+
+## I) Vocabulaire
+
+[1...]
+
+Ce graphe a 5 sommets. On dit qu'il est <u>d'ordre 5</u> 
+
+Il y a 2 arêtes reliées à &B&.  
+On dit alors que <u>&B& est degré 2</u>
+
+Il y a une arête reliant à &A& à &B&: on dit alors que &A& et &B& sont adjacents.  
+&A& et &D& ne sont pas adjacents.
+
+Quand tous les sommets sont adjacents &2& à &2&, on dit que le graphe est <u>complet</u>
+
+&A-B-C& est une <u>chaine</u> de longeur 3  
+&A-B-C-A-B& est une aussi une chaine, malgré la répétition, et elle est de longeur 5  
+
+Quand chaque couple de sommet peut être relié par une chaine le graphe est dit <u>connexe</u>.  
+
+[2...] Le graphe ci-contre est non connexe.
+
+[3...] Le graphe ci-contre est <u>orienté</u>
+
+[4...] Le graphe ci-contre est <u>pondéré</u>, Le nombre figurant sur l'arête s'appelle son <u>poids</u>.
+
+ 
